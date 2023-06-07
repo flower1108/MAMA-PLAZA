@@ -1,24 +1,35 @@
-# README
+# MAMA PLAZA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+ 子育て中のママのためのコミュニティサイト
 
-Things you may want to cover:
+### テーマを選んだ理由
+ 以下２点を解決できるサイトがあればいいなと思い、テーマに選びました。
 
-* Ruby version
+ - 情報共有とサポート：子育ては多くの情報や知識が必要です。子育ての経験や知識を持つ他のママたちと情報を共有し、お互いをサポートする場を提供することで、子育ての負担を軽減できます。
+ - 経験の共有と交流：同じく子育てをしている他のママたちと経験を共有し、励まし合ったりアドバイスをもらったりすることで、子育ての喜びや悩みを共有できます。交流の場を提供することで、孤独感を軽減できます。
 
-* System dependencies
+### ターゲットユーザ
+ - 子育て中のママ
+ - 子育てに関する専門家
 
-* Configuration
+### 主な利用シーン
+ - 情報収集と相談：子育てに関する情報を収集したり、他のママたちに相談したりする際に利用されます。例えば、育児の悩みや疑問を持ったときに、経験豊富な人にアドバイスを求めたり、専門家の意見を聞いたりすることができます。
+ - 経験の共有と交流：子育ての喜びや悩みを他のママたちと共有したり、励まし合ったりする場として利用されます。自分の子育て経験や子供の成長について投稿したり、他のママたちの投稿を読んだりすることで、経験を共有し交流することができます。
+ - 専門家のアドバイスと情報提供：子育てに関する専門家のアドバイスや情報をもらうために利用されます。
 
-* Database creation
+## 設計書
+<...>
 
-* Database initialization
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<!-- ## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
+--!>
