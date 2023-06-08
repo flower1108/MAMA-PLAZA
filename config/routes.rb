@@ -1,19 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :admins do
-    get 'users/show'
-    get 'users/index'
-  end
-  namespace :users do
-    get 'users/show'
-    get 'users/edit'
-  end
-  namespace :users do
-    get 'posts/index'
-    get 'posts/new'
-    get 'posts/show'
-    get 'posts/edit'
-  end
+
   devise_for :admins, skip: [:registrations, :passwords], controllers: {
   sessions: "admins/sessions"
   }
@@ -25,11 +12,19 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
 
-  #scope module: :public do
-    #root to: 'homes#top'
-  #end
+  #ゲストログイン
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
 
-  namespace :admin do
+  scope module: :users do
+
+    resources :posts
+
+    resources :users, only: [:show, :edit, :update]
+  end
+
+  namespace :admins do
     resources :posts, only: [:index, :show, :destroy]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
