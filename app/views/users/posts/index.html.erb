@@ -1,2 +1,12 @@
-<h1>Users::Posts#index</h1>
-<p>Find me in app/views/users/posts/index.html.erb</p>
+<h1>投稿一覧</h1>
+
+<% @posts.each do |post| %>
+  <%= post.title %>
+  <%= post.body %>
+  <%#= post.category.name %>
+  <% if post.post_image.attached? %>
+    <%= image_tag post.post_image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'noimage.png', size: "200x200" %>
+  <% end %>
+<% end %>
