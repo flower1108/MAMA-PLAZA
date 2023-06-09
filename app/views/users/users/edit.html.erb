@@ -1,2 +1,39 @@
-<h1>Users::Users#edit</h1>
-<p>Find me in app/views/users/users/edit.html.erb</p>
+<div class="container mypage">
+  <div class="row">
+    <div class="col">
+
+        <% if @user.errors.any? %>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <%end%>
+
+        <h3 class="my-page-title">Edit</h3>
+        <%= form_with model: @user,method: :patch do |f|%>
+          <table class="table table-bordered">
+          	<tbody>
+          		<tr class="table-row">
+          			<th class="table-head">ニックネーム</th>
+          			<td class="table-deta"> <%= f.text_field :name %></td>
+          		</tr>
+          		<tr>
+          			<th class="table-head">子ども情報</th>
+          			<td class="table-deta"><%= f.text_field :child_information %></td>
+          		</tr>
+          		<tr>
+          			<th class="table-head">メールアドレス</th>
+          			<td class="table-deta"><%= f.email_field :email %></td>
+          		</tr>
+          		<tr>
+          			<th class="table-head">自己紹介</th>
+          			<td class="table-deta"><%= f.text_field :introduction %></td>
+          		</tr>
+          	</tbody>
+          </table>
+            <%= f.submit "変更する" ,class: "btn btn-outline-dark" %>
+          </div>
+        <% end %>
+  </div>
+</div>
