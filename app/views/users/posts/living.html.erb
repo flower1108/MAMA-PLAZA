@@ -1,0 +1,7 @@
+<h1>くらし</h1>
+<% @posts.each do |post| %>
+  <% if post.category == "living" %>
+  <p>タイトル:<%= post.title %></p>
+  <p><%= post.body %></p>
+  <% end %>
+<% end %>

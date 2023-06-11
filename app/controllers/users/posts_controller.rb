@@ -9,8 +9,12 @@ class Users::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    redirect_to '/posts'
+    @post.user_id = current_user.id
+    if @post.save
+      redirect_to '/posts'
+    else
+      render :new
+    end
   end
 
   def show
@@ -19,8 +23,25 @@ class Users::PostsController < ApplicationController
   def edit
   end
 
+  def living
+    @posts = Post.all
+  end
+
+  def trip
+    @posts = Post.all
+  end
+
+  def food
+    @posts = Post.all
+  end
+
+  def talk
+    @posts = Post.all
+  end
+
+
   private
   def post_params
-    params.require(:post).permit(:title, :body, :post_image, :category_id)
+    params.require(:post).permit(:title, :body, :post_image, :category)
   end
 end

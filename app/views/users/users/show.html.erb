@@ -24,6 +24,16 @@
       		</tr>
       	</tbody>
       </table>
+      <table>
+        <tbody>
+          <% @posts.each do |post| %>
+          <tr>
+            <td><%= post.title %></td>
+            <td><%= post.body %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

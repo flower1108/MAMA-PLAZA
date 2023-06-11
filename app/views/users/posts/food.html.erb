@@ -1,0 +1,7 @@
+<h1>ごはん</h1>
+<% @posts.each do |post| %>
+  <% if post.category == "food" %>
+  <p>タイトル:<%= post.title %></p>
+  <p><%= post.body %></p>
+  <% end %>
+<% end %>

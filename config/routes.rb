@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   scope module: :users do
 
     resources :posts
+    get 'posts/living' => 'posts#living'
+    get 'posts/trip' => 'posts#trip'
+    get 'posts/food' => 'posts#food'
+    get 'posts/talk' => 'posts#talk'
 
     resources :users, only: [:show, :edit, :update]
   end

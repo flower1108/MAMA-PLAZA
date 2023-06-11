@@ -1,0 +1,7 @@
+<h1>ざつだん</h1>
+<% @posts.each do |post| %>
+  <% if post.category == "talk" %>
+  <p>タイトル:<%= post.title %></p>
+  <p><%= post.body %></p>
+  <% end %>
+<% end %>

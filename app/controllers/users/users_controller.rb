@@ -1,6 +1,7 @@
 class Users::UsersController < ApplicationController
   def show
     @user = current_user
+    @posts = @user.post
   end
 
   def edit

@@ -13,6 +13,11 @@
       <% if user_signed_in? %>
       <!--ユーザーがログインしている時 -->
         <li>
+          <%= link_to new_post_path,class: 'nav-link text-light' do %>
+          新規投稿
+          <% end %>
+        </li>
+        <li>
           <%= link_to user_path(current_user),class: 'nav-link text-light' do %>
           マイページ
           <% end %>
