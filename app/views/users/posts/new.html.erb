@@ -9,7 +9,7 @@
   <%= f.text_area :body %>
 
   <h4>カテゴリ</h4>
-  <%= f.select :category, Category.pluck(:name, :id), { include_blank: true } %>
+  <%= f.select :category_id, Category.pluck(:name, :id), { include_blank: true } %>
 
   <h4>画像</h4>
   <%= f.file_field :post_image, accept: "image/*" %>
