@@ -13,7 +13,7 @@
       <% if user_signed_in? %>
       <!--ユーザーがログインしている時 -->
         <li>
-          <%= link_to new_post_path,class: 'nav-link text-dark' do %>
+          <%= link_to new_post_path,class: 'nav-link text-dark',id: 'text' do %>
           新規投稿
           <% end %>
         </li>
