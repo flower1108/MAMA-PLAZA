@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   }
 
   root to: 'homes#top'
+  get '/about' => 'homes#about'
 
   #ゲストログイン
   devise_scope :user do
@@ -22,11 +23,14 @@ Rails.application.routes.draw do
 
   scope module: :users do
 
-    resources :posts
-    get 'posts/living' => 'posts#living'
-    get 'posts/trip' => 'posts#trip'
-    get 'posts/food' => 'posts#food'
-    get 'posts/talk' => 'posts#talk'
+    resources :posts do
+      collection do
+        get :living
+        get :trip
+        get :food
+        get :talk
+      end
+    end
 
     resources :users, only: [:show, :edit, :update]
   end

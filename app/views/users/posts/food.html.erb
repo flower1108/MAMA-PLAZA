@@ -1,7 +1,5 @@
 <h1>ごはん</h1>
-<% @posts.each do |post| %>
-  <% if post.category == "food" %>
-  <p>タイトル:<%= post.title %></p>
+<% @foods.each do |post| %>
+  <p>タイトル:<%= link_to post.title, post_path(post.id) %></p>
   <p><%= post.body %></p>
-  <% end %>
 <% end %>

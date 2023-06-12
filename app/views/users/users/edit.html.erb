@@ -10,27 +10,27 @@
           </ul>
         <%end%>
 
-        <h3 class="my-page-title">Edit</h3>
+        <h2>ユーザー編集</h2>
         <%= form_with model: @user,method: :patch do |f|%>
           <table class="table table-bordered">
-          	<tbody>
-          		<tr class="table-row">
-          			<th class="table-head">ニックネーム</th>
-          			<td class="table-deta"> <%= f.text_field :name %></td>
-          		</tr>
-          		<tr>
-          			<th class="table-head">子ども情報</th>
-          			<td class="table-deta"><%= f.text_field :child_information %></td>
-          		</tr>
-          		<tr>
-          			<th class="table-head">メールアドレス</th>
-          			<td class="table-deta"><%= f.email_field :email %></td>
-          		</tr>
-          		<tr>
-          			<th class="table-head">自己紹介</th>
-          			<td class="table-deta"><%= f.text_field :introduction %></td>
-          		</tr>
-          	</tbody>
+            <tbody>
+              <tr class="table-row">
+                <th class="table-head">ニックネーム</th>
+                <td class="table-deta"> <%= f.text_field :name %></td>
+              </tr>
+              <tr>
+                <th class="table-head">子ども情報</th>
+                <td class="table-deta"><%= f.text_field :child_information %></td>
+              </tr>
+              <tr>
+                <th class="table-head">メールアドレス</th>
+                <td class="table-deta"><%= f.email_field :email %></td>
+              </tr>
+              <tr>
+                <th class="table-head">自己紹介</th>
+                <td class="table-deta"><%= f.text_field :introduction %></td>
+              </tr>
+            </tbody>
           </table>
             <%= f.submit "変更" ,class: "btn btn-outline-dark" %>
           </div>

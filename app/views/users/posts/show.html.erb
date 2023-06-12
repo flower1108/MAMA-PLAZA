@@ -1,2 +1,6 @@
-<h1>Users::Posts#show</h1>
-<p>Find me in app/views/users/posts/show.html.erb</p>
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+<% if @post.user == current_user %>
+  <%= link_to "編集", edit_post_path(@post.id) %>
+  <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<% end %>

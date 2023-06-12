@@ -1,18 +1,37 @@
-<h1>新規投稿</h1>
+<div class="container d-flex justify-content-center">
+  <div class="row">
+    <div class="col">
 
-<%= form_with model: @post, url:'/posts' do |f| %>
+      <h2>新規投稿</h2>
 
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
+      <%= form_with model: @post, url:'/posts' do |f| %>
 
-  <h4>本文</h4>
-  <%= f.text_area :body %>
+        <div class="field mt-4">
+          <%= f.label :"タイトル" %><br />
+          <%= f.text_field :title %>
+        </div>
 
-  <h4>カテゴリ</h4>
-  <%= f.select :category, [["くらし", "living"], ["おでかけ", "trip"], ["ごはん", "food"], ["ざつだん", "talk"]], include_blank: "カテゴリ選択" %>
+        <div class="field mt-2">
+          <%= f.label :"本文" %><br />
+          <%= f.text_area :body %>
+        </div>
 
-  <h4>画像</h4>
-  <%= f.file_field :post_image, accept: "image/*" %>
-  <%= f.submit '投稿' %>
+        <div class="field mt-2">
+          <%= f.label :"カテゴリ" %><br />
+          <%= f.select :category, [["くらし", "living"], ["おでかけ", "trip"], ["ごはん", "food"], ["ざつだん", "talk"]], include_blank: "カテゴリ選択" %>
+        </div>
 
-<% end %>
+        <div class="field mt-2">
+          <%= f.label :"画像" %><br />
+          <%= f.file_field :post_image, accept: "image/*" %>
+        </div>
+
+        <div class="actions mt-3">
+          <%= f.submit '投稿', class: "btn btn-outline-secondary" %>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

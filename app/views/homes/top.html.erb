@@ -1,2 +1,82 @@
-<h1>Homes#top</h1>
-<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MamaPlaza</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <script src="https://kit.fontawesome.com/7c3fb47ea9.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'homes' %>
+  </head>
+
+  <body>
+    <header class="header-top">
+      <h1 class="logo">
+        <a href="about.html.erb">
+          <%= image_tag "MAMA PLAZA.png", size: "200x200"  %>
+        </a>
+      </h1>
+      <nav class="menubar">
+        <% if user_signed_in? %>
+        <!--ユーザーがログインしている時 -->
+        <ul>
+          <li>
+            <%= link_to new_post_path do %>
+            新規投稿
+            <% end %>
+          </li>
+            <li>
+            <%= link_to user_path(current_user) do %>
+            マイページ
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            ログアウト
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to new_user_registration_path do %>
+            新規登録
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_session_path do %>
+            ログイン
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
+          </li>
+        <% end %>
+        </ul>
+        <ul>
+          <li>
+            <%= link_to living_posts_path do %>
+            くらし
+            <% end %>
+          </li>
+          <li>
+            <%= link_to trip_posts_path do %>
+            おでかけ
+            <% end %>
+          </li>
+          <li>
+            <%= link_to food_posts_path do %>
+            ごはん
+            <% end %>
+          </li>
+          <li>
+            <%= link_to talk_posts_path do %>
+            ざつだん
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
