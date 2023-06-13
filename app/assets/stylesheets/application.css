@@ -21,9 +21,6 @@
 }*/
 
 
-.navbar-logo {
-  margin-left: 10%;
-}
 
 
 /*全体の設定*/
@@ -72,7 +69,7 @@
   display: block;
   width: 20%;
   position: absolute;
-  left: 40%;
+  left: 45%;
   bottom: 50%;
 }
 
@@ -106,4 +103,48 @@
 
 .menubar li a:hover {
   border-bottom: 2px solid #444440;
+}
+
+/*ヘッダーの設定*/
+
+/*投稿一覧の設定*/
+
+.post-index {
+  width: 800px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto; /* 中央揃え */
+  padding: 70px 0; /* 上下に70px、左右に0pxの内側余白 */
+}
+
+.post-blog-heading {
+  border-bottom: 8px solid #f7f7f7;
+  text-align: center;
+  line-height: 0.6;
+}
+
+.post-box {
+  padding-top: 50px;
+}
+
+.post-item {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f7f7f7;
+  display: flex;
+  flex-direction:column;
+  justify-content: flex-start;
+}
+
+.post-text {
+  padding: 25px 0 0 30px;
+}
+
+.post-title {
+  padding-bottom: 15px;
+}
+
+.post-date {
+  font-size: 12px;
+  display: inline-block;
 }

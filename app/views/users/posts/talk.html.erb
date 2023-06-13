@@ -1,5 +1,23 @@
-<h1>ざつだん</h1>
-<% @talks.each do |post| %>
-  <p>タイトル:<%= link_to post.title, post_path(post.id) %></p>
-  <p><%= post.body %></p>
-<% end %>
+<main class="post-index">
+  <section class="post-blog">
+    <h2 class="post-blog-heading">ざつだん</h2>
+    <div class ="post-box">
+      <div class="post-item">
+        <% @talks.each do |post| %>
+          <%= link_to post_path(post.id) do %>
+            <% if post.post_image.attached? %>
+              <%= image_tag post.post_image, :height => '150' %>
+            <% else %>
+              <%= image_tag 'noimage.png', :height => '150' %>
+            <% end %>
+          <% end %>
+          <section class="post-text">
+            <h3 class="post-title"><%= link_to post.title, post_path(post.id) %></h3>
+            <p><%= post.body %></p>
+            <p class="post-date"><%= post.created_at %></p>
+          </section>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</main>

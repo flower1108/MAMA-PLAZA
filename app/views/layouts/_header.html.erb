@@ -1,71 +1,72 @@
 <header>
 
-  <nav class="navbar p-2 header-logo" style="background-color:#fcc0c5" id="h-nav">
-
-    <a class="navbar-logo" href="/">
-    <%= image_tag 'MAMA PLAZA.png', size: "110x110" %>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="">
-      <ul class="navbar-nav">
-      <% if user_signed_in? %>
-      <!--ユーザーがログインしている時 -->
-        <li>
-          <%= link_to new_post_path,class: 'nav-link text-dark',id: 'text' do %>
-          新規投稿
-          <% end %>
-        </li>
-        <li>
-          <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
-          マイページ
-          <% end %>
-        </li>
-        <li>
-          <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-dark' do %>
-          ログアウト
-          <% end %>
-        </li>
-      <% elsif admin_signed_in? %>
-      <!-- 管理者がログインしている時 -->
-        <li>
-          <%=  link_to admins_posts_path,class: 'nav-link text-dark' do %>
-          投稿一覧
-          <% end %>
-        </li>
-        <li>
-          <%#=  link_to user_path,class: 'nav-link text-light' do %>
-          会員一覧
-          <%# end %>
-        </li>
-        <li>
-          <%=  link_to admins_categories_index_path,class: 'nav-link text-dark' do %>
-          カテゴリ一覧
-          <% end %>
-        </li>
-        <li>
-          <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-dark' do %>
-          ログアウト
-          <% end %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to new_user_registration_path do %>
-          新規登録
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_user_session_path do %>
-          ログイン
-          <% end %>
-        </li>
-        <li>
-          <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
-        </li>
-      <% end %>
-      </ul>
-    </div>
+  <nav class="navbar navbar-expand-lg p-2" style="background-color:#fcc0c5">
+    <div class="container">
+      <a class="navbar-logo" href="/">
+      <%= image_tag 'MAMA PLAZA.png', size: "110x110" %>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+        <!--ユーザーがログインしている時 -->
+          <li>
+            <%= link_to new_post_path,class: 'nav-link text-dark',id: 'text' do %>
+            新規投稿
+            <% end %>
+          </li>
+          <li>
+            <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
+            マイページ
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-dark' do %>
+            ログアウト
+            <% end %>
+          </li>
+        <% elsif admin_signed_in? %>
+        <!-- 管理者がログインしている時 -->
+          <li>
+            <%=  link_to admins_posts_path,class: 'nav-link text-dark' do %>
+            投稿一覧
+            <% end %>
+          </li>
+          <li>
+            <%#=  link_to user_path,class: 'nav-link text-light' do %>
+            会員一覧
+            <%# end %>
+          </li>
+          <li>
+            <%=  link_to admins_categories_index_path,class: 'nav-link text-dark' do %>
+            カテゴリ一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-dark' do %>
+            ログアウト
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to new_user_registration_path do %>
+            新規登録
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_session_path do %>
+            ログイン
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+        </div>
       </div>
     </div>
   </nav>
