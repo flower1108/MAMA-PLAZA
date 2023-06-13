@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   scope module: :users do
 
     resources :posts do
+      resources :comments, only: [:create, :destroy]
       collection do
         get :living
         get :trip

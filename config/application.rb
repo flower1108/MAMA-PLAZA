@@ -21,6 +21,6 @@ module MamaPlaza
   end
 
   #日本時間の設定
-  config.i18n.default_locale = :ja
-  config.time_zone = 'Tokyo'
+  #config.i18n.default_locale = :ja
+  #config.time_zone = 'Tokyo'
 end
