@@ -5,11 +5,7 @@
       <div class="post-item">
         <% @livings.each do |post| %>
           <%= link_to post_path(post.id) do %>
-            <% if post.post_image.attached? %>
-              <%= image_tag post.post_image, :height => '150' %>
-            <% else %>
-              <%= image_tag 'noimage.png', :height => '150' %>
-            <% end %>
+            <%= image_tag post.get_post_image, :height => '150' %>
           <% end %>
           <section class="post-text">
             <h3 class="post-title"><%= link_to post.title, post_path(post.id) %></h3>
