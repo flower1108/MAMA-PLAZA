@@ -9,10 +9,10 @@
           <% end %>
           <section class="post-text">
             <h3 class="post-title"><%= link_to post.title, post_path(post.id) %></h3>
+            <p><%= post.user.name %></p>
             <p><%= post.body %></p>
             <p class="post-date"><%= post.created_at %></p>
             <p><%= link_to "コメント #{post.comments.count} 件", post_path(post.id) %></p>
-            <p><%= render 'favorite', post: @trips %></p>
           </section>
         <% end %>
       </div>
