@@ -1,4 +1,4 @@
-class Admin::PostsController < ApplicationController
+class Admins::PostsController < ApplicationController
 
   private
   def post_params
