@@ -1,0 +1,8 @@
+<p>お気に入り一覧</p>
+<% @favorite_posts.each do |post| %>
+  <%= link_to post_path(post.id) do %>
+    <%= image_tag post.get_post_image, :height => '150' %>
+  <% end %>
+  <%= link_to post.user.name, user_path(post.user.id) %>
+  <%= link_to post.title, post_path(post.id) %>
+<% end %>

@@ -47,6 +47,7 @@
         </tbody>
       </table>
       <% end %>
+      <p><%= link_to "お気に入り一覧", favorites_user_path(@user) %></p>
       <table>
         <tbody>
           <% @posts.each do |post| %>
