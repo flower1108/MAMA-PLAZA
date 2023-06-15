@@ -1,7 +1,7 @@
 <div class="container mypage">
   <div class="row">
     <div class="col">
-
+      <% if user_signed_in? && current_user.id.to_s == params[:id] %>
       <h3 class="my-page-title">マイページ <%= link_to "編集", edit_user_path(current_user) ,class: "btn btn-outline-secondary"%></h3>
 
       <table class="table table-bordered">
@@ -28,6 +28,25 @@
           </tr>
         </tbody>
       </table>
+      <% else %>
+      <h2><%= @user.name %></h2>
+      <table>
+        <tbody>
+          <tr>
+            <th class="table-head">プロフィール画像</th>
+            <td class="table-deta"><%#= image_tag @user.profile_image, :height => '150' %></td>
+          </tr>
+          <tr>
+            <th class="table-head">子ども情報</th>
+            <td class="table-deta"><%= @user.child_information %></td>
+          </tr>
+          <tr>
+            <th class="table-head">自己紹介</th>
+            <td class="table-deta"><%= @user.introduction %></td>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
       <table>
         <tbody>
           <% @posts.each do |post| %>
