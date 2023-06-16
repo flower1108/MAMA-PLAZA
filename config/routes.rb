@@ -42,7 +42,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admins do
+
     resources :posts, only: [:index, :show, :destroy]
+
+    resources :users, only: [:show, :index]
+
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
