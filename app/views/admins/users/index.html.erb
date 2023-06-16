@@ -1,2 +1,15 @@
-<h1>Admins::Users#index</h1>
-<p>Find me in app/views/admins/users/index.html.erb</p>
+<main>
+  <h2>ユーザー一覧</h2>
+  <div>
+    <div>
+      <% @users.each do |user| %>
+        <%= link_to admins_user_path(user.id) do %>
+          <%= image_tag user.get_profile_image, :height => '150' %>
+        <% end %>
+        <section>
+          <p><%= link_to user.name, admins_user_path(user.id) %></p>
+        </section>
+      <% end %>
+    </div>
+  </div>
+</main>
