@@ -35,9 +35,9 @@
             <% end %>
           </li>
           <li>
-            <%#=  link_to user_path,class: 'nav-link text-light' do %>
-            会員一覧
-            <%# end %>
+            <%=  link_to admins_users_path,class: 'nav-link text-dark' do %>
+            ユーザー一覧
+            <% end %>
           </li>
           <li>
             <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-dark' do %>

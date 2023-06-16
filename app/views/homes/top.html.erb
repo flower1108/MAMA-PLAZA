@@ -39,13 +39,13 @@
           </li>
         <% elsif admin_signed_in? %>
           <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= link_to admins_posts_path do %>
             投稿一覧
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-            ユーザー
+            <%= link_to admins_users_path do %>
+            ユーザー一覧
             <% end %>
           </li>
           <li>

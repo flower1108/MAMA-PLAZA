@@ -1,0 +1,19 @@
+<main class="post-index">
+  <section class="post-blog">
+    <h2 class="post-blog-heading">投稿一覧</h2>
+    <div class ="post-box">
+      <div class="post-item">
+        <% @posts.each do |post| %>
+          <%= link_to admins_post_path(post.id) do %>
+            <%= image_tag post.get_post_image, :height => '150' %>
+          <% end %>
+          <section class="post-text">
+            <h3 class="post-title"><%= link_to post.title, admins_post_path(post.id) %></h3>
+            <p><%= post.body %></p>
+            <p class="post-date"><%= post.created_at %></p>
+          </section>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</main>
