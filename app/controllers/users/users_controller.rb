@@ -1,5 +1,5 @@
 class Users::UsersController < ApplicationController
-  before_action :set_user, only: [:favorites]
+  before_action :set_user, only: [:favorites, :followings, :followers]
 
   def show
     @user = User.find(params[:id])
@@ -22,6 +22,16 @@ class Users::UsersController < ApplicationController
   def favorites
     @favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
     @favorite_posts = Post.find(@favorites)
+  end
+
+  #フォロー一覧
+  def followings
+    @users = @user.followings
+  end
+
+  #フォローワー一覧
+  def followers
+    @users = @user.followers
   end
 
   private
