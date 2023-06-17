@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
 
+  namespace :users do
+    get 'relationships/followings'
+    get 'relationships/followers'
+  end
+  get 'relationships/followings'
+  get 'relationships/followers'
   namespace :admins do
     get 'categories/index'
   end
@@ -35,8 +41,9 @@ Rails.application.routes.draw do
     end
 
     resources :users, only: [:show, :edit, :update] do
+      resource :relationships, only: [:create, :destroy]
       member do
-        get :favorites
+        get :favorites, :followings, :followers
       end
     end
   end
