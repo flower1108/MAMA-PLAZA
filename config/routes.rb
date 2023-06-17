@@ -40,7 +40,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :users, only: [:show, :edit, :update] do
+    resources :users, only: [:index, :show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
       member do
         get :favorites, :followings, :followers
