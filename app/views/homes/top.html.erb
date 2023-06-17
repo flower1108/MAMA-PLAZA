@@ -37,6 +37,22 @@
             ログアウト
             <% end %>
           </li>
+        <% elsif admin_signed_in? %>
+          <li>
+            <%= link_to admins_posts_path do %>
+            投稿一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admins_users_path do %>
+            ユーザー一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            ログアウト
+            <% end %>
+          </li>
         <% else %>
           <li>
             <%= link_to new_user_registration_path do %>
@@ -50,6 +66,11 @@
           </li>
           <li>
             <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
+          </li>
+          <li>
+            <%= link_to new_admin_session_path do %>
+            管理者
+            <% end %>
           </li>
         <% end %>
         </ul>

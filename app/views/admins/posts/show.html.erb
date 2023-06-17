@@ -1,0 +1,17 @@
+<h1><%= @post.title %></h1>
+<p><%= link_to @post.user.name, user_path(@user.id) %></p>
+<%= image_tag @post.get_post_image, :height => '150' %>
+<p><%= @post.body %></p>
+<%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<p>お気に入り<%= @post.favorites.count %>件</p>
+
+<div>
+  <p>コメント件数：<%= @post.comments.count %></p>
+  <% @post.comments.each do |comment| %>
+    <p><%= comment.user.name %></p>
+    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+    <% if comment.user == current_user %>
+      <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
+    <% end %>
+  <% end %>
+</div>

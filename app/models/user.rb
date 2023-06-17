@@ -32,13 +32,21 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
-  before_create :default_image
+  #before_create :default_image
 
-  def default_image
-    if !self.profile_image.attached?
-      self.profile_image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'profile-noimage.png')), filename: 'profile-noimage.png', content_type: 'image/png')
+  def get_profile_image
+    unless profile_image.attached?
+      file_path = Rails.root.join('app/assets/images/profile-noimage.png')
+      profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
+    profile_image
   end
+
+  #def default_image
+    #if !self.profile_image.attached?
+      #self.profile_image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'profile-noimage.png')), filename: 'profile-noimage.png', content_type: 'image/png')
+    #end
+  #end
   #ゲストログイン
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
