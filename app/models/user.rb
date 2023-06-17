@@ -32,6 +32,11 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
+  #検索
+  def self.looks(search, word)
+    @user = User.where("name LIKE?","%#{word}%")
+  end
+
   #before_create :default_image
 
   def get_profile_image
