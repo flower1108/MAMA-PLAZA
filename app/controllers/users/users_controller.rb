@@ -1,6 +1,10 @@
 class Users::UsersController < ApplicationController
   before_action :set_user, only: [:favorites, :followings, :followers]
 
+  def index
+    @users = User.all
+  end
+
   def show
     @user = User.find(params[:id])
     @posts = @user.post
