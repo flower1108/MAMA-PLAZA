@@ -1,38 +1,57 @@
-<h1><%= @post.title %></h1>
-<p><%= link_to @post.user.name, user_path(@user.id) %></p>
-<%= image_tag @post.get_post_image, :height => '150' %>
-<p><%= @post.body %></p>
-<% if @post.user == current_user %>
-  <%= link_to "編集", edit_post_path(@post.id) %>
-  <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-<% end %>
-<% if @post.favorited_by?(current_user) %>
-  <p>
-    <%= link_to post_favorites_path(@post), method: :delete do %>
-      ♥<%= @post.favorites.count %> いいね
-    <% end %>
-  </p>
-  <% else %>
-  <p>
-    <%= link_to post_favorites_path(@post), method: :post do %>
-      ♡<%= @post.favorites.count %> いいね
-    <% end %>
-  </p>
-<% end %>
+<div class='container'>
+  <div class='row'>
+    <h2><%= @post.title %></h2>
+    <table class="table">
+      <tr>
+        <td><%= link_to @post.user.name, user_path(@user.id) %></td>
+          <%= image_tag @post.get_post_image, :height => '150' %>
+        <td><%= @post.body %></td>
+        <% if @post.user == current_user %>
+          <td><%= link_to "編集", edit_post_path(@post.id) %></td>
+          <td><%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+        <% end %>
+        <% if user_signed_in? %>
+        <td id="favorite_buttons_<%= @post.id %>">
+          <%= render "users/favorites/favorite", post: @post %>
+        </td>
+        <% end %>
+      </tr>
+    </table>
 
-<div>
-  <p>コメント件数：<%= @post.comments.count %></p>
-  <% @post.comments.each do |comment| %>
-    <p><%= comment.user.name %></p>
-    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-    <% if comment.user == current_user %>
-      <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
+    <div class="comment-area">
+      <p>コメント一覧（<%= @post.comments.count %>件）</p>
+      <% @post.comments.each do |comment| %>
+        <p><%= comment.user.name %> : <%= comment.comment %></p>
+        <p><%= comment.created_at.strftime('%Y/%m/%d') %></p>
+        <% if comment.user == current_user %>
+          <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
+        <% end %>
+        <% if user_signed_in? %>
+        <div class="reply-area">
+          <% comment.replies.each do |reply| %>
+            <p><%= comment.user.name %> : <%= reply.comment %></p>
+          <% if comment.user == current_user %>
+            <%= link_to "削除", post_comment_path(reply.comment.post, reply.comment), method: :delete %>
+          <% end %>
+          <% end %>
+        </div>
+        <%= form_with model: [@post, @comment_reply] do |f| %>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <p><label>返信</label></p>
+            <%= f.text_area :comment_reply, rows: '3', placeholder: "返信コメントはここに" %>
+            <%= f.submit "投稿" %>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+      <div>
+        <%= form_with model: [@post, @comment] do |f| %>
+          <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+          <%= f.submit "投稿" %>
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
-</div>
-<div>
-  <%= form_with model: [@post, @comment] do |f| %>
-    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-    <%= f.submit "送信する" %>
-  <% end %>
+  </div>
 </div>
