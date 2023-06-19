@@ -4,23 +4,13 @@ class Users::CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     @comment.user_id = current_user.id
-    #コメント返信
-    @comment_reply = @post.comments.new
-    if @comment.save
-      flash.now[:notice] = "コメントの投稿に成功しました"
-      redirect_to post_path(@post)
-    else
-      flash.now[:notice] = "コメントの投稿に失敗しました"
-      redirect_to post_path(@post)
-    end
+    @comment.save
   end
 
   def destroy
     @post = Post.find(params[:post_id])
-    @comment_reply = @post.comments.new
-    Comment.find(params[:id]).destroy
-    flash.now[:notice] = "コメントを削除しました"
-    redirect_to post_path(params[:post_id])
+    @comment = Comment.find(params[:id]).destroy
+    @comment.destroy
   end
 
   private
