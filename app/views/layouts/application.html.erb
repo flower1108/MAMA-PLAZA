@@ -13,15 +13,7 @@
 
   <body>
     <%= render "layouts/header" %>
-    <div class="container">
-      <div class="row">
-        <div class="col-2">
-          <%= render 'layouts/sidebar' %>
-        </div>
-        <div class="col-8">
+
           <%= yield %>
-        </div>
-      </div>
-    </div>
   </body>
 </html>
