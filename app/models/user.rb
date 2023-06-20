@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
+  validates :name, presence: true, length: { maximum: 20 }
+
   #フォローした時の処理
   def follow(user_id)
     relationships.create(followed_id: user_id)
@@ -53,7 +55,7 @@ class User < ApplicationRecord
     #end
   #end
   #ゲストログイン
-  def self.guest
+  def self.guest_user
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
     end
