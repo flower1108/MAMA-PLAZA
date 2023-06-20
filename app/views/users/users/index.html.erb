@@ -7,7 +7,7 @@
           <%= image_tag user.get_profile_image, :height => '150' %>
         <% end %>
         <section>
-          <p><%= link_to user.name, admins_user_path(user.id) %></p>
+          <p><%= link_to user.name, user_path(user.id) %></p>
         </section>
       <% end %>
     </div>

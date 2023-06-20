@@ -168,3 +168,26 @@ header{
   font-size: 12px;
   display: inline-block;
 }
+
+/*ユーザーページの設定*/
+
+.follow-button {
+  font-size: 20px;
+  text-align: right;
+}
+
+/*ページの設定*/
+
+.pagination {
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.pagination>li>a {
+  border: none;
+  color: #679483;
+}
+
+.pagination>.active>a {
+  background: #f4f2e9;
+}
