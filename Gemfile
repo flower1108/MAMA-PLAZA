@@ -58,6 +58,7 @@ gem 'devise'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
+gem 'rails-i18n'
 
 gem 'dotenv-rails'
 group :production do
