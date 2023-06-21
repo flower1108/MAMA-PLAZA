@@ -15,21 +15,25 @@
         <!--ユーザーがログインしている時 -->
           <li>
             <%= link_to new_post_path,class: 'nav-link text-dark',id: 'text' do %>
+            <i class="fas fa-pen"></i>
             新規投稿
             <% end %>
           </li>
           <li>
             <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
+            <i class="fas fa-home-lg-alt"></i>
             マイページ
             <% end %>
           </li>
           <li>
             <%=  link_to users_path,class: 'nav-link text-dark' do %>
+            <i class="fas fa-user-friends"></i>
             ユーザー
             <% end %>
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-dark' do %>
+            <i class="fas fa-sign-out-alt"></i>
             ログアウト
             <% end %>
           </li>
@@ -52,17 +56,22 @@
           </li>
         <% else %>
           <li>
-            <%= link_to new_user_registration_path do %>
+            <%= link_to new_user_registration_path, class: 'nav-link text-dark' do %>
+            <i class="fas fa-user-plus"></i>
             新規登録
             <% end %>
           </li>
           <li>
-            <%= link_to new_user_session_path do %>
+            <%= link_to new_user_session_path, class: 'nav-link text-dark' do %>
+            <i class="fas fa-sign-in-alt"></i>
             ログイン
             <% end %>
           </li>
           <li>
-            <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
+            <%= link_to users_guest_sign_in_path, class: 'nav-link text-dark', method: :post do %>
+            <i class="fas fa-user-check"></i>
+            ゲストログイン
+            <% end %>
           </li>
         <% end %>
         </ul>
