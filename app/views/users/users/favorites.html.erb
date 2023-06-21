@@ -1,8 +1,6 @@
-<p>お気に入り一覧</p>
-<% @favorite_posts.each do |post| %>
-  <%= link_to post_path(post.id) do %>
-    <%= image_tag post.get_post_image, :height => '150' %>
-  <% end %>
-  <%= link_to post.user.name, user_path(post.user.id) %>
-  <%= link_to post.title, post_path(post.id) %>
-<% end %>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <h2 class="border-bottom border-gray m-0 pr-1 post-blog-heading">お気に入り</h2>
+  </div>
+  <%= render 'users/posts/post', posts: @favorite_posts %>
+</div>
