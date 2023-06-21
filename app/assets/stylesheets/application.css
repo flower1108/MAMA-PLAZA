@@ -169,11 +169,20 @@ header{
   display: inline-block;
 }
 
+.card-lists {
+  margin-top: 50px;
+}
+
 /*ユーザーページの設定*/
 
 .follow-button {
   font-size: 20px;
   text-align: right;
+}
+
+.user-text {
+  padding-left: 0px;
+  margin-top: 15px;
 }
 
 /*ページの設定*/
