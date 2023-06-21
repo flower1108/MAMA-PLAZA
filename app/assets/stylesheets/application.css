@@ -173,6 +173,14 @@ header{
   margin-top: 50px;
 }
 
+/*投稿詳細の設定*/
+
+.post-btn {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
 /*ユーザーページの設定*/
 
 .follow-button {

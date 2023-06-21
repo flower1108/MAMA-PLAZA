@@ -1,22 +1,24 @@
 <div class="container">
-  <div class="row">
-    <h2><%= @post.title %></h2>
-    <table class="table">
+  <div class="row no-gutters">
+    <div class="col-md-10 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+    <h2 class="text-dark bg-light p-3 mb-0 post-h2-title"><%= @post.title %>
+      <% if @post.user == current_user %>
+        <p class="post-btn"><%= link_to "編集", edit_post_path(@post.id), class: "btn btn-outline-secondary" %>
+        <%= link_to "削除", post_path(@post), class: "btn btn-outline-secondary" , method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
+      <% end %>
+    </h2>
+    <div>
       <tr>
         <td><%= link_to @post.user.name, user_path(@user.id) %></td>
           <%= image_tag @post.get_post_image, :height => '150' %>
         <td><%= @post.body %></td>
-        <% if @post.user == current_user %>
-          <td><%= link_to "編集", edit_post_path(@post.id) %></td>
-          <td><%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
-        <% end %>
         <% if user_signed_in? %>
-        <td id="favorite_buttons_<%= @post.id %>">
+        <p id="favorite_buttons_<%= @post.id %>">
           <%= render "users/favorites/favorite", post: @post %>
-        </td>
+        </p>
         <% end %>
       </tr>
-    </table>
+    </div>
 
     <div class="comment-area">
       <p>コメント一覧（<%= @post.comments.count %>件）</p>
@@ -53,5 +55,6 @@
         <% end %>
       </div>
     <% end %>
+    </div>
   </div>
 </div>
