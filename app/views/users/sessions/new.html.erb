@@ -1,16 +1,27 @@
-<div class="container d-flex justify-content-center">
-  <div class="row">
-    <div class="col">
-      <h2>Log in</h2>
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h2 class="text-dark bg-light p-4 mb-0">ログイン</h2>
+        <div class="form-body p-4">
+          <% if @user.errors.any? %>
+            <ul class="alert alert-danger" role="alert">
+              <h6 class="alert-heading">
+                <%= @user.errors.count %>件のエラーが発生しました
+              </h6>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          <% end %>
 
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field mt-2">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@mail" %>
+          <%= f.label :"メールアドレス" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
 
         <div class="field mt-2">
-          <%= f.label :password %><br />
+          <%= f.label :"パスワード" %><br />
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
 
@@ -26,6 +37,7 @@
         </div>
       <% end %>
 
+      <p class="login_new mt-3">登録がお済みでない方</p>
       <%= render "users/shared/links" %>
 
     </div>

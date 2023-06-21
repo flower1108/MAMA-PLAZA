@@ -1,19 +1,36 @@
-<p>フォロワー一覧</p><br/>
-  <% @users.each do |user| %>
-    <table>
-      <thead>
-        <tr>
-          <th>name</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= user.name %></td>
-          <td>フォロー数: <%= user.followings.count %></td>
-          <td>フォロワー数: <%= user.followers.count %></td>
-        </tr>
-      </tbody>
-    </table>
-  <% end %>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <h2 class="border-bottom border-gray m-0 pr-1 post-blog-heading">フォロー中</h2>
+  </div>
+  <div class="row">
+    <div class="col-2 text-center">
+      <%= render 'users/posts/sidebar' %>
+    </div>
+
+    <div class ="col-10  card-list p-5">
+      <% @users.each do |user| %>
+        <div class="card mx-auto mt-4 shadow-lg" style="max-width: 900px;">
+          <div class="row no-gutters">
+            <div class="col-lg-3">
+              <%= link_to user_path(user.id) do %>
+                <%= image_tag user.get_profile_image, :height => '180', class:"card-img-top"; %>
+              <% end %>
+            </div>
+            <div class="col-lg-9">
+              <div class="card-body">
+                <p class="card-title">
+                  <%= link_to(user_path(user.id), class:"text-dark") do %>
+                    <strong><i class="far fa-user"></i><span> <%= user.name %></span></strong>
+                  <% end %>
+                </p>
+                <span><%= link_to "#{user.followings.count} フォロー", followings_user_path(user.id) %> ｜ <%= link_to "#{user.followers.count} フォロワー", followers_user_path(user.id) %></span><br>
+                <span class="user-text"><i class="fas fa-baby"></i><%= user.child_information %></span><br>
+                <span class="user-text"><%= user.introduction %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

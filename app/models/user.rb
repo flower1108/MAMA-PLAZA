@@ -18,6 +18,8 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
   validates :name, presence: true, length: { maximum: 20 }
+  validates :email, presence: true
+  #validates :password, presence: true, length: { minimum: 6 }, confirmation: { type: :password, message: :wrong_password_confirmation }
 
   #フォローした時の処理
   def follow(user_id)
@@ -43,7 +45,7 @@ class User < ApplicationRecord
 
   def get_profile_image
     unless profile_image.attached?
-      file_path = Rails.root.join('app/assets/images/PF.logo.2.png')
+      file_path = Rails.root.join('app/assets/images/MAMA-PLAZA.jpg')
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     profile_image

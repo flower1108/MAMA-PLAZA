@@ -1,23 +1,44 @@
 <div class="container">
+  <div class="row d-flex justify-content-center">
+    <h2 class="border-bottom border-gray m-0 pr-1 post-blog-heading">おでかけ</h2>
+  </div>
   <div class="row">
-    <section class="post-blog">
-      <h2 class="post-blog-heading">おでかけ</h2>
-      <div class ="post-box">
-        <div class="post-item">
-          <% @trips.each do |post| %>
-            <%= link_to post_path(post.id) do %>
-              <%= image_tag post.get_post_image, :height => '150' %>
-            <% end %>
-            <section class="post-text">
-              <h3 class="post-title"><%= link_to post.title, post_path(post.id) %></h3>
-              <p><%= post.user.name %></p>
-              <p><%= post.body %></p>
-              <p class="post-date"><%= post.created_at %></p>
-              <p><%= link_to "コメント #{post.comments.count} 件", post_path(post.id) %></p>
-            </section>
+    <div class="col-2 text-center">
+      <%= render 'sidebar' %>
+    </div>
+
+    <div class ="col-10  card-list p-5">
+      <% @trips.each do |post| %>
+      <div class="card mx-auto mt-4 shadow-lg" style="max-width: 900px;">
+        <div class="row no-gutters">
+        <div class="col-lg-3">
+          <%= link_to post_path(post.id) do %>
+            <%= image_tag post.get_post_image, :height => '180', class:"card-img-top"; %>
           <% end %>
+          </div>
+          <div class="col-lg-9">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-2">
+                <%= image_tag post.user.get_profile_image, size: '80x80', class:"mt-3 rounded-circle" %>
+              </div>
+              <div class="col-6">
+                <p class="card-title">
+                  <%= link_to(post_path(post.id), class:"text-dark") do %>
+                    <strong><i class="far fa-flag"></i><span> <%= post.title %></span></strong>
+                  <% end %>
+                </p>
+                <span><i class="fas fa-user"></i> By <%= post.user.name %> ｜ </span>
+                <span><%= link_to "コメント #{post.comments.count} 件", post_path(post.id) %></span>
+                <span class="post-date"><%= post.created_at %></span>
+              </div>
+            </div>
+                <p class="card-text"><%= post.body %></p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      <% end %>
+    </div>
   </div>
 </div>
