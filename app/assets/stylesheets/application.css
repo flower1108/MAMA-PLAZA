@@ -237,5 +237,22 @@ header{
 }
 
 .text-link:hover {
-  color: #1d4741;
+  color: #a6cfc0;
+}
+
+/*フッターの設定*/
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #f4f2e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.copyright-container {
+  display: flex;
 }
