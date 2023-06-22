@@ -46,7 +46,7 @@
       </table>
       <% else %>
       <h2 class="text-dark bg-light p-4 mb-0">
-        <%= image_tag @user.profile_image, :height => '70' %>  <%= @user.name %>
+        <%= image_tag @user.profile_image,class: "rounded-circle", :height => '70' %>  <%= @user.name %>
           <% if current_user.following?(@user) %>
             <%= link_to user_relationships_path(@user.id), method: :delete do %>
               <i class="fas fa-user-minus"></i>
