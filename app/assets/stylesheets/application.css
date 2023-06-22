@@ -179,6 +179,19 @@ header{
   margin-bottom: 0;
 }
 
+.post-content {
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.post-body {
+  padding: 20px;
+}
+
+.post-favorite {
+  padding-left: 20px;
+}
+
 /*ユーザーページの設定*/
 
 .follow-button {
