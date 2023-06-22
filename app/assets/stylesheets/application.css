@@ -106,6 +106,14 @@ header{
   height: 100px;
 }
 
+.nav-link {
+  color: #679483;
+}
+
+.nav-link:hover {
+  color: #1d4741;
+}
+
 /*サイドバーの設定*/
 
 .sidebar-table {
@@ -203,4 +211,8 @@ header{
 
 .text-link {
   color: #8ab3a4;
+}
+
+.text-link:hover {
+  color: #1d4741;
 }

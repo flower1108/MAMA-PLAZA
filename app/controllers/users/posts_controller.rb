@@ -51,19 +51,19 @@ class Users::PostsController < ApplicationController
   end
 
   def living
-    @livings = Post.where(category:"living")
+    @livings = Post.where(category:"living").page(params[:page]).per(20)
   end
 
   def trip
-    @trips = Post.where(category:"trip")
+    @trips = Post.where(category:"trip").page(params[:page]).per(20)
   end
 
   def food
-    @foods = Post.where(category:"food")
+    @foods = Post.where(category:"food").page(params[:page]).per(20)
   end
 
   def talk
-    @talks = Post.where(category:"talk")
+    @talks = Post.where(category:"talk").page(params[:page]).per(20)
   end
 
 

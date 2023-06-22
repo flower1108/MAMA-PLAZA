@@ -2,12 +2,12 @@ class Users::UsersController < ApplicationController
   before_action :set_user, only: [:favorites, :followings, :followers]
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(20)
   end
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.post.page(params[:page])
+    @posts = @user.post.page(params[:page]).per(10)
   end
 
   def edit
