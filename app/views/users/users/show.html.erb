@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row no-gutters">
-    <div class="col-md-10 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+    <div class="col-2 text-center">
+      <%= render 'users/posts/sidebar' %>
+    </div>
+    <div class="col-md-9 col-sm-9 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
 
       <% if user_signed_in? && current_user.id.to_s == params[:id] %>
       <h2 class="text-dark bg-light p-4 mb-0">
