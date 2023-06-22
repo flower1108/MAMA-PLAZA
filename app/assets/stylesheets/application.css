@@ -49,6 +49,12 @@
   text-decoration: none; /*マウスオンの時に下線を消す*/
 }
 
+/*全体の設定*/
+
+h2 {
+  font-family: "Hannari";
+}
+
 /*ヘッダー*/
 
 #header-top {
@@ -190,6 +196,10 @@ header{
 
 .post-favorite {
   padding-left: 20px;
+}
+
+.post-comment {
+  padding: 20px;
 }
 
 /*ユーザーページの設定*/

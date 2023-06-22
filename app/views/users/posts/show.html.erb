@@ -25,14 +25,15 @@
           <%= render "users/favorites/favorite", post: @post %>
         </p>
       </div>
-    <% end %>
-    <p>コメント一覧（<%= @post.comments.count %>件）</p>
-    <div id="comment_area_<%= @post.id %>">
-      <%= render "users/comments/show", post: @post, comment: @comment %>
-    </div>
-    <div id="comment_form_<%= @post.id %>">
-      <%= render "users/comments/comment", post: @post, comment: @comment %>
-    </div>
+      <% end %>
+      <div class="post-comment">
+        <div id="comment_area_<%= @post.id %>">
+          <%= render "users/comments/show", post: @post, comment: @comment %>
+        </div>
+        <div id="comment_form_<%= @post.id %>">
+          <%= render "users/comments/comment", post: @post, comment: @comment %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
