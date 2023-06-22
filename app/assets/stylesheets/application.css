@@ -108,18 +108,8 @@ header{
 
 /*サイドバーの設定*/
 
-.nav-sidebar {
-  width: 230px;
-  height: 100%;
-}
-
-.sidebar_fixed {
-  position: sticky;
-}
-
-.nav-sidebar-link {
-    color: black;
-    background-color: rgba(255, 255, 255, 0.493);
+.sidebar-table {
+  padding-top: 20px;
 }
 
 /*マウスオンの時*/
@@ -207,4 +197,10 @@ header{
 
 .pagination>.active>a {
   background: #f4f2e9;
+}
+
+/*テキストリンクの設定*/
+
+.text-link {
+  color: #8ab3a4;
 }

@@ -3,7 +3,7 @@
     <div class="col-2 text-center">
       <%= render 'sidebar' %>
     </div>
-    <div class="col-md-10 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+    <div class="col-md-9 col-sm-9 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <h3 class="text-dark bg-light p-4 mb-0 post-h2-title"><%= @post.title %>
         <% if @post.user == current_user %>
           <span class="post-btn"><%= link_to "編集", edit_post_path(@post.id), class: "btn btn-outline-secondary" %>
@@ -34,7 +34,7 @@
         </div>
     <div>
       <%= form_with model: [@post, @comment] do |f| %>
-        <%= f.text_area :comment, cols: "80", rows: '2', placeholder: "コメントをここに" %>
+        <%= f.text_area :comment, cols: "30", rows: '2', placeholder: "コメントをここに" %>
         <%= f.submit "投稿", class: "btn btn-outline-secondary" %>
       <% end %>
     </div>
