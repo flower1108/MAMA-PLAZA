@@ -1,15 +1,9 @@
 <div class="container">
-  <h2>ユーザー一覧</h2>
-  <div>
-    <div>
-      <% @users.each do |user| %>
-        <%= link_to admins_user_path(user.id) do %>
-          <%= image_tag user.get_profile_image, :height => '150' %>
-        <% end %>
-        <section>
-          <p><%= link_to user.name, admins_user_path(user.id) %></p>
-        </section>
-      <% end %>
-    </div>
+  <div class="row justify-content-center">
+    <h2 class="m-0 pr-1 post-blog-heading">ユーザー一覧</h2>
+  </div>
+  <div class="row">
+    <%= render 'index', users: @users %>
+    <%= paginate @users %>
   </div>
 </div>

@@ -1,17 +1,24 @@
-<h1><%= @post.title %></h1>
-<p><%= link_to @post.user.name, user_path(@user.id) %></p>
-<%= image_tag @post.get_post_image, :height => '150' %>
-<p><%= @post.body %></p>
-<%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-<p>お気に入り<%= @post.favorites.count %>件</p>
-
-<div>
-  <p>コメント件数：<%= @post.comments.count %></p>
-  <% @post.comments.each do |comment| %>
-    <p><%= comment.user.name %></p>
-    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-    <% if comment.user == current_user %>
-      <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
-    <% end %>
-  <% end %>
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-8 col-sm-8 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h3 class="text-dark bg-light p-4 mb-0 post-h2-title"><%= @post.title %>
+        <span class="post-btn"><%= link_to "削除", admins_post_path(@post), class: "btn btn-outline-secondary" , method: :delete, "data-confirm" => "本当に削除しますか？" %></span>
+      </h3>
+      <div class ="post-detail-image">
+        <%= image_tag @post.get_post_image, :width => '100%' %>
+      </div>
+      <div class="post-content">
+        <p><i class="fas fa-user-edit"></i><%= link_to @post.user.name, admins_user_path(@user.id), class:"text-dark" %></p>
+      </div>
+      <div class="post-body">
+        <p><%= @post.body %></p>
+      </div>
+      <div class="post-favorite">
+        <p><i class="fas fa-heart"></i><%= @post.favorites.count %>件</p>
+      </div>
+      <div class="post-comment">
+        <%= render "users/comments/show", post: @post, comment: @comment %>
+      </div>
+    </div>
+  </div>
 </div>

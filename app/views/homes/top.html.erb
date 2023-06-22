@@ -75,6 +75,7 @@
         <% end %>
         </ul>
         <ul>
+        <% if user_signed_in? %>
           <li>
             <%= link_to living_posts_path do %>
             くらし
@@ -95,6 +96,7 @@
             ざつだん
             <% end %>
           </li>
+        <% end %>
         </ul>
       </nav>
     </header>
