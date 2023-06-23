@@ -23,7 +23,7 @@
                     <strong><i class="far fa-user"></i><span> <%= user.name %></span></strong>
                   <% end %>
                 </p>
-                <span><%= link_to "#{user.followings.count} フォロー", followings_user_path(user.id) %> ｜ <%= link_to "#{user.followers.count} フォロワー", followers_user_path(user.id) %></span><br>
+                <span><%= link_to "#{user.followings.count} フォロー", followings_user_path(user.id), class:"text-link" %> ｜ <%= link_to "#{user.followers.count} フォロワー", followers_user_path(user.id), class:"text-link" %></span><br>
                 <span class="user-text"><i class="fas fa-baby"></i><%= user.child_information %></span><br>
                 <span class="user-text"><%= user.introduction %></span>
               </div>
