@@ -26,16 +26,17 @@ class Users::UsersController < ApplicationController
   def favorites
     @favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
     @favorite_posts = Post.find(@favorites)
+    @favorite_post = Post.page(params[:page]).per(20)
   end
 
   #フォロー一覧
   def followings
-    @users = @user.followings
+    @users = @user.followings.page(params[:page]).per(20)
   end
 
   #フォローワー一覧
   def followers
-    @users = @user.followers
+    @users = @user.followers.page(params[:page]).per(20)
   end
 
   private

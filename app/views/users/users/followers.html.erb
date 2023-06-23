@@ -31,6 +31,9 @@
           </div>
         </div>
       <% end %>
+      <%= paginate @users %>
+      <%= link_to "戻る", :back, class: "btn btn-outline-secondary" %>
+    </div>
     </div>
   </div>
 </div>
