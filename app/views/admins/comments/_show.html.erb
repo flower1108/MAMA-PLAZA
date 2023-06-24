@@ -1,0 +1,15 @@
+<p>コメント一覧（<%= post.comments.count %>件）</p>
+<% post.comments.each do |comment| %>
+<div>
+  <% unless comment.user.blank? %>
+    <%= link_to user_path(comment.user) do %>
+      <%= image_tag comment.user.get_profile_image, size: '50x50', class:"rounded-circle icon_image mr-1 mb-1" %>
+    <% end %>
+  <% end %>
+  <%= comment.user.name unless comment.user.blank? %>
+    <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-outline-danger pull-right ml-2", remote: true %>
+  <br>
+  <%= comment.comment %>
+  </div>
+  <br>
+<% end %>

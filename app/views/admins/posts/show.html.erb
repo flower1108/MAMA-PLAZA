@@ -16,8 +16,8 @@
       <div class="post-favorite">
         <p><i class="fas fa-heart"></i><%= @post.favorites.count %>件</p>
       </div>
-      <div class="post-comment">
-        <%= render "users/comments/show", post: @post, comment: @comment %>
+      <div id="comment_area_<%= @post.id %>">
+        <%= render "admins/comments/show", post: @post, comment: @comment %>
       </div>
     </div>
   </div>
