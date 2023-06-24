@@ -1,16 +1,45 @@
-<div>
-  <h3><%= @user.name %></h3>
-  <%= image_tag @user.get_profile_image, :height => '150' %>
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-9 col-sm-9 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h2 class="text-dark bg-light p-4 mb-0">
+        <%= image_tag @user.get_profile_image, class: "rounded-circle", :height => '70' %>  <%= @user.name %>
+      </h2>
+      <div>
+        <ul class="list-group list-group-horizontal flex-fill list-group-flush">
+          <li class="list-group-item">
+            <%= link_to favorites_user_path(@user), class: "text-link" do %>
+              <i class="fas fa-heart"></i>お気に入り
+            <% end %>
+          </li>
+          <li class="list-group-item">
+            <%= link_to followings_user_path(@user), class: "text-link" do %>
+              <i class="fas fa-user-friends"></i>フォロー
+            <% end %>
+          </li>
+          <li class="list-group-item">
+            <%= link_to followers_user_path(@user), class: "text-link" do %>
+              <i class="fas fa-user-friends"></i>フォロワー
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th class="table-head">子ども情報</th>
+            <td class="table-deta"><%= @user.child_information %></td>
+          </tr>
+          <tr>
+            <th class="table-head">メールアドレス</th>
+            <td class="table-deta"><%= @user.email %></td>
+          </tr>
+          <tr>
+            <th class="table-head">自己紹介</th>
+            <td class="table-deta"><%= @user.introduction %></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= render 'admins/posts/post', posts: @posts %>
+    </div>
+  </div>
 </div>
-
-<!-- ユーザーの投稿一覧 -->
-
-<% @posts.each do |post| %>
-<div>
-  <%= link_to admins_post_path(post.id) do %>
-    <%= image_tag post.get_post_image, :height => '100' %>
-  <% end %>
-  <p>タイトル：<%= post.title %></p>
-  <p>本文：<%= post.body %></p>
-</div>
-<% end %>

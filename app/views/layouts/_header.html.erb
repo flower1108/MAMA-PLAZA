@@ -1,67 +1,77 @@
-<header>
+<header class="w-100 d-flex justify-content-between align-items-center px-3 fixed-top" style="background-color:#f4f2e9">
 
-  <nav class="navbar navbar-expand-lg p-2" style="background-color:#f4f2e9">
+  <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-logo" href="/">
       <%= image_tag 'PF.logo.1.png', :height =>'100' %>
       </a>
+      <%= render 'layouts/search' %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav d-flex flex-row ml-auto">
         <% if user_signed_in? %>
         <!--ユーザーがログインしている時 -->
           <li>
-            <%= link_to new_post_path,class: 'nav-link text-dark',id: 'text' do %>
+            <%= link_to new_post_path,class: 'nav-link' do %>
+            <i class="fas fa-pen"></i>
             新規投稿
             <% end %>
           </li>
           <li>
-            <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
+            <%= link_to user_path(current_user),class: 'nav-link' do %>
+            <i class="fas fa-home-lg-alt"></i>
             マイページ
             <% end %>
           </li>
           <li>
-            <%=  link_to users_path,class: 'nav-link text-dark' do %>
+            <%=  link_to users_path,class: 'nav-link' do %>
+            <i class="fas fa-user-friends"></i>
             ユーザー
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-dark' do %>
+            <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link' do %>
+            <i class="fas fa-sign-out-alt"></i>
             ログアウト
             <% end %>
           </li>
         <% elsif admin_signed_in? %>
         <!-- 管理者がログインしている時 -->
           <li>
-            <%=  link_to admins_posts_path,class: 'nav-link text-dark' do %>
+            <%=  link_to admins_posts_path,class: 'nav-link' do %>
             投稿一覧
             <% end %>
           </li>
           <li>
-            <%=  link_to admins_users_path,class: 'nav-link text-dark' do %>
+            <%=  link_to admins_users_path,class: 'nav-link' do %>
             ユーザー一覧
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-dark' do %>
+            <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link' do %>
             ログアウト
             <% end %>
           </li>
         <% else %>
           <li>
-            <%= link_to new_user_registration_path do %>
+            <%= link_to new_user_registration_path, class: 'nav-link' do %>
+            <i class="fas fa-user-plus"></i>
             新規登録
             <% end %>
           </li>
           <li>
-            <%= link_to new_user_session_path do %>
+            <%= link_to new_user_session_path, class: 'nav-link' do %>
+            <i class="fas fa-sign-in-alt"></i>
             ログイン
             <% end %>
           </li>
           <li>
-            <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
+            <%= link_to users_guest_sign_in_path, class: 'nav-link', method: :post do %>
+            <i class="fas fa-user-check"></i>
+            ゲストログイン
+            <% end %>
           </li>
         <% end %>
         </ul>
@@ -69,7 +79,6 @@
         </div>
       </div>
     </div>
-    <%= render 'layouts/search' %>
   </nav>
   </div>
 </header>

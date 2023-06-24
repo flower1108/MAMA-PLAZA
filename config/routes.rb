@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: 'homes#top'
+  get '/about' => 'homes#about'
 
   namespace :users do
     get 'relationships/followings'
@@ -19,8 +21,6 @@ Rails.application.routes.draw do
   sessions: 'users/sessions'
   }
 
-  root to: 'homes#top'
-  get '/about' => 'homes#about'
 
   #ゲストログイン
   devise_scope :user do
@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   namespace :admins do
 
     resources :posts, only: [:index, :show, :destroy]
+      resources :comments, only: [:destroy]
 
     resources :users, only: [:show, :index]
 

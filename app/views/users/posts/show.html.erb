@@ -1,29 +1,43 @@
-<div class="container">
-  <div class="row">
-    <h2><%= @post.title %></h2>
-    <table class="table">
-      <tr>
-        <td><%= link_to @post.user.name, user_path(@user.id) %></td>
-          <%= image_tag @post.get_post_image, :height => '150' %>
-        <td><%= @post.body %></td>
-        <% if @post.user == current_user %>
-          <td><%= link_to "編集", edit_post_path(@post.id) %></td>
-          <td><%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
-        <% end %>
-        <% if user_signed_in? %>
-        <td id="favorite_buttons_<%= @post.id %>">
-          <%= render "users/favorites/favorite", post: @post %>
-        </td>
-        <% end %>
-      </tr>
-    </table>
+<div class="flash text-success">
+  <%= flash[:notice] %>
+</div>
 
-    <p>コメント一覧（<%= @post.comments.count %>件）</p>
-    <div id="comment_area_<%= @post.id %>">
-      <%= render "users/comments/show", post: @post, comment: @comment %>
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-2 text-center">
+      <%= render 'sidebar' %>
     </div>
-    <div id="comment_form_<%= @post.id %>">
-      <%= render "users/comments/comment", post: @post, comment: @comment %>
+    <div class="col-md-7 col-sm-7 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h3 class="text-dark bg-light p-4 mb-0 post-h2-title"><%= @post.title %>
+        <% if @post.user == current_user %>
+          <span class="post-btn"><%= link_to "編集", edit_post_path(@post.id), class: "btn btn-outline-secondary" %>
+          <%= link_to "削除", post_path(@post), class: "btn btn-outline-secondary" , method: :delete, "data-confirm" => "本当に削除しますか？" %></span>
+        <% end %>
+      </h3>
+      <div class ="post-detail-image">
+        <%= image_tag @post.get_post_image, :width => '100%' %>
+      </div>
+      <div class="post-content">
+        <p><i class="fas fa-user-edit"></i><%= link_to @post.user.name, user_path(@user.id), class:"text-dark" %></p>
+      </div>
+      <div class="post-body">
+        <p><%= @post.body %></p>
+      </div>
+      <% if user_signed_in? %>
+      <div class="post-favorite">
+        <p id="favorite_buttons_<%= @post.id %>">
+          <%= render "users/favorites/favorite", post: @post %>
+        </p>
+      </div>
+      <% end %>
+      <div class="post-comment">
+        <div id="comment_area_<%= @post.id %>">
+          <%= render "users/comments/show", post: @post, comment: @comment %>
+        </div>
+        <div id="comment_form_<%= @post.id %>">
+          <%= render "users/comments/comment", post: @post, comment: @comment %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

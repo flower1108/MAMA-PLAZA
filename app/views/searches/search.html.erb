@@ -1,25 +1,17 @@
 <div class="container">
+  <div class="row d-flex justify-content-center">
+    <h2 class="border-bottom border-gray m-0 pr-1 post-blog-heading">検索結果</h2>
+  </div>
   <div class="row">
-    <h2>検索結果</h2>
-    <table class="table table-hover table-inverse">
+    <div class="col-2 text-center">
+      <%= render 'users/posts/sidebar' %>
+    </div>
+    <div class ="col-10  card-list p-5">
       <% if @range == "User" %>
-        <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <td><%= link_to user.name, user_path(user) %></td>
-            </tr>
-          <% end %>
-        </tbody>
+        <%= render 'users/users/user', users: @users %>
       <% else %>
-        <tbody>
-          <% @posts.each do |post| %>
-            <tr>
-              <td><%= link_to post.title, post_path(post) %></td>
-              <td><%= post.body %></td>
-            </tr>
-          <% end %>
-        </tbody>
+        <%= render 'users/posts/post', posts: @posts %>
       <% end %>
-    </table>
+    </div>
   </div>
 </div>

@@ -1,42 +1,52 @@
-<div class="container d-flex justify-content-center">
-  <div class="row">
-    <div class="col">
-      <h2>Sign up</h2>
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h2 class="text-dark bg-light p-4 mb-0">ユーザー登録</h2>
+        <div class="form-body p-4">
+          <% if @user.errors.any? %>
+            <ul class="alert alert-danger" role="alert">
+              <h6 class="alert-heading">
+                <%= @user.errors.count %>件のエラーが発生しました
+              </h6>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          <% end %>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "users/shared/error_messages", resource: resource %>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-        <div class="field mt-4">
-          <%= f.label :"ニックネーム" %><br />
-          <%= f.text_field :name, placeholder: "ニックネーム" %>
-        </div>
+            <div class="field mt-4">
+              <%= f.label :"ニックネーム" %><br />
+              <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+            </div>
 
-        <div class="field mt-2">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@mail" %>
-        </div>
+            <div class="field mt-2">
+              <%= f.label :"メールアドレス" %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@mail" %>
+            </div>
 
-        <div class="field mt-2">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
+            <div class="field mt-2">
+              <%= f.label :"パスワード" %>
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
 
-        <div class="field mt-2">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
+            <div class="field mt-2">
+              <%= f.label :"パスワード確認" %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
 
-        <div class="actions mt-3">
-          <%= f.submit "登録", class: "btn btn-outline-secondary" %>
-        </div>
-      <% end %>
+            <div class="actions mt-3">
+              <%= f.submit "登録", class: "btn btn-outline-secondary" %>
+            </div>
+          <% end %>
 
-      <p class="login_new mt-3">登録済みの方はこちら</p>
-      <%= render "users/shared/links" %>
-
+          <p class="login_new mt-3">登録済みの方はこちら</p>
+          <%= render "users/shared/links", class: "btn btn-outline-secondary" %>
+      </div>
     </div>
   </div>
 </div>

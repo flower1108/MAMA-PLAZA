@@ -1,0 +1,37 @@
+<table class="table table-hover text-center mt-5">
+  <thead class="table">
+    <tr>
+      <th>カテゴリ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="text-center rounded-end">
+        <%= link_to living_posts_path, class:"text-link" do %>
+          <i class="fas fa-home"></i> くらし
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td class="text-center rounded-end">
+        <%= link_to trip_posts_path, class:"text-link" do %>
+          <i class="fas fa-suitcase"></i> おでかけ
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td class="text-center rounded-end">
+        <%= link_to food_posts_path, class:"text-link" do %>
+          <i class="fas fa-utensils"></i> ごはん
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td class="text-center rounded-end">
+        <%= link_to talk_posts_path, class:"text-link" do %>
+          <i class="fas fa-comments"></i> ざつだん
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>

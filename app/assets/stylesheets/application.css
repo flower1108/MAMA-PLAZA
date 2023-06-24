@@ -25,6 +25,13 @@
 
 /*全体の設定*/
 
+body {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  display: flex; /*フッター用の設定*/
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 #html-top,#body-top {height: 100%;}
 #body-top {
   height: 100%;
@@ -32,14 +39,9 @@
   padding: 0px;
   color: #776955; /*文字色*/
   font-size: 16px;
-  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; /*フォントの種類*/
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   /*background: #ea96a3; /*背景色*/
 }
-
-/*h1,ul,li {
-  margin: 0px;
-  padding: 0px;
-}*/
 
 
 /*リンク設定*/
@@ -53,6 +55,7 @@
   color: #ff4765; /*マウスオンの時の文字色*/
   text-decoration: none; /*マウスオンの時に下線を消す*/
 }
+
 
 /*ヘッダー*/
 
@@ -107,65 +110,28 @@
 
 /*ヘッダーの設定*/
 
+header{
+  height: 100px;
+}
+
+.nav-link {
+  color: #679483;
+}
+
+.nav-link:hover {
+  color: #1d4741;
+}
+
+/*メインの設定*/
+
+main {
+  min-height: calc(100vh - 100px - 60px);
+}
+
 /*サイドバーの設定*/
 
-.sidebar {
-  min-height: 100vh;
-  height: 100%;
-  width: 220px;
-  float: left;
-  color: #ffe8dd;
-  overflow-y: auto;
-  overflow-x: hidden;
-  z-index: 10;
-}
-
-.sidebar-categories {
-  margin: 1rem 0 2rem;
-}
-
-.sidebar-header {
-  text-align: left;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  margin: 0 1rem 0.1rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #ab9ba9;
-  width: 200px;
-  position: relative;
-}
-
-.category-index {
-  padding: 0;
-  margin-top: 10px;
-  list-style-type: none;
-  text-align: left;
-  color: #ab9ba9;
-}
-
-.category-index li {
-  position: relative;
-  list-style-type: none!important;/*ポチ消し*/
-  padding: 0.5em;
-  margin-bottom: 5px;
-  line-height: 1.5;
-  background: #fcc0c5;
-  vertical-align: middle;
-  color: #505050;
-  border-radius: 15px 0px 0px 15px;/*角を丸く*/
-}
-
-.category-index li:before {
-  display: inline-block;
-  vertical-align: middle;
-  /*白丸*/
-  content: '';
-  width: 1em;
-  height: 1em;
-  background: #fff;
-  border-radius: 50%;
-  margin-right: 8px;
+.sidebar-table {
+  padding-top: 20px;
 }
 
 /*マウスオンの時*/
@@ -184,7 +150,7 @@
 }
 
 .post-blog-heading {
-  border-bottom: 8px solid #f7f7f7;
+  padding-top: 70px;
   text-align: center;
   line-height: 0.6;
 }
@@ -213,4 +179,103 @@
 .post-date {
   font-size: 12px;
   display: inline-block;
+}
+
+.card-lists {
+  margin-top: 50px;
+}
+
+/*投稿詳細の設定*/
+
+.flash {
+  margin-top: 30px;
+}
+
+.post-btn {
+  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.post-content {
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.post-body {
+  padding: 20px;
+}
+
+.post-favorite {
+  padding-left: 20px;
+}
+
+.post-comment {
+  padding: 20px;
+}
+
+/*ユーザーページの設定*/
+
+.follow-button {
+  font-size: 20px;
+  text-align: right;
+}
+
+.user-text {
+  padding-left: 0px;
+  margin-top: 15px;
+}
+
+/*ページの設定*/
+
+.pagination {
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.pagination>li>a {
+  border: none;
+  color: #679483;
+}
+
+.pagination>.active>a {
+  background: #f4f2e9;
+}
+
+/*テキストリンクの設定*/
+
+.text-link {
+  color: #8ab3a4;
+}
+
+.text-link:hover {
+  color: #a6cfc0;
+}
+
+/*フッターの設定*/
+
+.footerFixed {
+  position: relative;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+  background-color: #f4f2e9;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #f4f2e9;
+}
+
+/*Aboutページの設定*/
+
+.about-page {
+  background-color: #f4f2e9;
+  height:100vh;
+}
+
+.about-box {
+  margin-top: 80px;
 }

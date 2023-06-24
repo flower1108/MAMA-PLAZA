@@ -1,39 +1,42 @@
-<div class="container mypage">
-  <div class="row">
-    <div class="col">
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
 
-        <% if @user.errors.any? %>
-          <ul>
-            <% @user.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        <%end%>
-
-        <h2>ユーザー編集</h2>
+      <h2 class="text-dark bg-light p-4 mb-0">プロフィール編集</h2>
+        <div class="form-body p-4">
+          <% if @user.errors.any? %>
+            <ul class="alert alert-danger" role="alert">
+              <h6 class="alert-heading">
+                <%= @user.errors.count %>件のエラーが発生しました
+              </h6>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          <% end %>
         <%= form_with model: @user,method: :patch do |f|%>
-          <table class="table table-bordered">
-            <tbody>
-              <tr class="table-row">
-                <th class="table-head">ニックネーム</th>
-                <td class="table-deta"> <%= f.text_field :name %></td>
-              </tr>
-              <tr>
-                <th class="table-head">子ども情報</th>
-                <td class="table-deta"><%= f.text_field :child_information %></td>
-              </tr>
-              <tr>
-                <th class="table-head">メールアドレス</th>
-                <td class="table-deta"><%= f.email_field :email %></td>
-              </tr>
-              <tr>
-                <th class="table-head">自己紹介</th>
-                <td class="table-deta"><%= f.text_field :introduction %></td>
-              </tr>
-            </tbody>
-          </table>
-            <%= f.submit "変更" ,class: "btn btn-outline-dark" %>
+          <div class="input-group mb-3 mt-4">
+            <%= f.text_field :name %>
+          </div>
+            <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
+          <div class="field mt-2">
+            <%= f.label :"子ども情報" %><br />
+            <%= f.text_field :child_information %>
+          </div>
+          <div class="field mt-2">
+            <%= f.label :"メールアドレス" %><br />
+            <%= f.email_field :email %>
+          </div>
+          <div class="field mt-2">
+            <%= f.label :"自己紹介" %><br />
+            <%= f.text_field :introduction %>
+          </div>
+        </div>
+        <hr>
+          <div class="actions mt-3">
+            <%= link_to "戻る", :back, class: "btn btn-outline-secondary" %>     <%= f.submit "変更" ,class: "btn btn-outline-secondary" %>
           </div>
         <% end %>
+    </div>
   </div>
 </div>

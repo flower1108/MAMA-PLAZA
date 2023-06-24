@@ -11,17 +11,14 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="padding-top: 5rem">
+
     <%= render "layouts/header" %>
-    <div class="container">
-      <div class="row">
-        <div class="col-2">
-          <%= render 'layouts/sidebar' %>
-        </div>
-        <div class="col-8">
-          <%= yield %>
-        </div>
-      </div>
+    <main>
+    <%= yield %>
+    </main>
+    <div class="footerFixed">
+    <%= render "layouts/footer" %>
     </div>
   </body>
 </html>
