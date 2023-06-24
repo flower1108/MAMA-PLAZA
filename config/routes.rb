@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root to: 'homes#top'
   get '/about' => 'homes#about'
 
@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   namespace :admins do
 
     resources :posts, only: [:index, :show, :destroy]
+      resources :comments, only: [:destroy]
 
     resources :users, only: [:show, :index]
 
