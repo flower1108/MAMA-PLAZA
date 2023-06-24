@@ -36,11 +36,10 @@
             <hr>
 
             <div class="actions mt-3">
-              <%= f.submit '更新', class: "btn btn-outline-secondary" %>
+              <%= link_to "戻る", post_path(@post), class: "btn btn-outline-secondary" %>   <%= f.submit '更新', class: "btn btn-outline-secondary" %>
             </div>
 
             <% end %>
-            <%= link_to "戻る", class: "btn btn-outline-secondary" %>
 
       </div>
     </div>

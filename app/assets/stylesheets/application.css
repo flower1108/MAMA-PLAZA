@@ -25,6 +25,13 @@
 
 /*全体の設定*/
 
+body {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  display: flex; /*フッター用の設定*/
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 #html-top,#body-top {height: 100%;}
 #body-top {
   height: 100%;
@@ -32,7 +39,7 @@
   padding: 0px;
   color: #776955; /*文字色*/
   font-size: 16px;
-  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; /*フォントの種類*/
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   /*background: #ea96a3; /*背景色*/
 }
 
@@ -49,11 +56,6 @@
   text-decoration: none; /*マウスオンの時に下線を消す*/
 }
 
-/*全体の設定*/
-
-h2 {
-  font-family: "Hannari";
-}
 
 /*ヘッダー*/
 
@@ -120,6 +122,12 @@ header{
   color: #1d4741;
 }
 
+/*メインの設定*/
+
+main {
+  min-height: calc(100vh - 100px - 60px);
+}
+
 /*サイドバーの設定*/
 
 .sidebar-table {
@@ -178,6 +186,10 @@ header{
 }
 
 /*投稿詳細の設定*/
+
+.flash {
+  margin-top: 30px;
+}
 
 .post-btn {
   text-align: right;
@@ -243,16 +255,27 @@ header{
 /*フッターの設定*/
 
 .footerFixed {
-    min-height: 100vh;
-    position: relative;
-    padding-bottom: 80px;
-    box-sizing: border-box;
+  position: relative;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+  background-color: #f4f2e9;
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background-color: #f4f2e9;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #f4f2e9;
+}
+
+/*Aboutページの設定*/
+
+.about-page {
+  background-color: #f4f2e9;
+  height:100vh;
+}
+
+.about-box {
+  margin-top: 80px;
 }

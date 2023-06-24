@@ -14,14 +14,14 @@
   <body id="body-top">
     <header id="header-top" >
       <h1 id="logo">
-        <a href="about.html.erb", id="logo-top">
+        <a href="/about", id="logo-top">
           <%= image_tag "PF.logo.1.png", :height => '200'  %>
         </a>
       </h1>
       <nav class="menubar">
+        <ul>
         <% if user_signed_in? %>
         <!--ユーザーがログインしている時 -->
-        <ul>
           <li>
             <%= link_to new_post_path do %>
             新規投稿
