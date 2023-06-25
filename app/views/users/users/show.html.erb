@@ -12,7 +12,7 @@
       <% if user_signed_in? && current_user.id.to_s == params[:id] %>
       <h2 class="text-dark bg-light p-4 mb-0">
         <%= image_tag @user.get_profile_image, class: "rounded-circle", :height => '70' %>  <%= @user.name %>
-        <% if @user.email != "guest@example.com" %>
+        <% unless @user.guest_user? %>
           <%= link_to "編集", edit_user_path(current_user) , class: "btn btn-outline-secondary" %>
         <% end %>
       </h2>
