@@ -19,7 +19,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 20 }
   validates :email, presence: true
-  #validates :password, presence: true, length: { minimum: 6 }, confirmation: { type: :password, message: :wrong_password_confirmation }
 
   #フォローした時の処理
   def follow(user_id)

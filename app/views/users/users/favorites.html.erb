@@ -8,9 +8,9 @@
     </div>
 
     <div class ="col-10  card-list p-5">
-    <%= render 'users/posts/post', posts: @favorite_posts %>
-    <%= paginate @favorite_post %>
-    <%= link_to "戻る", :back, class: "btn btn-outline-secondary" %>
+      <%= render 'users/posts/post', posts: @favorite_posts %>
+      <%= paginate @favorite_post %>
+      <%= link_to "戻る", :back, class: "btn btn-outline-secondary" %>
     </div>
   </div>
 </div>

@@ -10,6 +10,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  #検索用
+  def authenticate_any!
+    if admin_signed_in?
+        true
+    else
+        authenticate_user!
+    end
+  end
+
   private
 
     def configure_permitted_parameters

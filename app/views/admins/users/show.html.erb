@@ -8,17 +8,17 @@
         <ul class="list-group list-group-horizontal flex-fill list-group-flush">
           <li class="list-group-item">
             <%= link_to favorites_user_path(@user), class: "text-link" do %>
-              <i class="fas fa-heart"></i>お気に入り
+              <i class="fas fa-heart"></i> <%= @user.favorites.count %> お気に入り
             <% end %>
           </li>
           <li class="list-group-item">
             <%= link_to followings_user_path(@user), class: "text-link" do %>
-              <i class="fas fa-user-friends"></i>フォロー
+              <i class="fas fa-user-friends"></i> <%= @user.followings.count %> フォロー
             <% end %>
           </li>
           <li class="list-group-item">
             <%= link_to followers_user_path(@user), class: "text-link" do %>
-              <i class="fas fa-user-friends"></i>フォロワー
+              <i class="fas fa-user-friends"></i> <%= @user.followers.count %> フォロワー
             <% end %>
           </li>
         </ul>
@@ -40,8 +40,10 @@
         </tbody>
       </table>
       <%= render 'admins/posts/post', posts: @posts %>
-      <%= link_to "戻る", admins_users_path ,class: "btn btn-outline-secondary" %>
-      <%= link_to "退会させる", unsubscribe_admins_user_path ,class: "btn btn-outline-secondary" %>
+      <div class="post-comment">
+        <%= link_to "戻る", admins_users_path ,class: "btn btn-outline-secondary" %>
+        <%= link_to "退会させる", unsubscribe_admins_user_path ,class: "btn btn-outline-secondary" %>
+      </div>
     </div>
   </div>
 </div>
