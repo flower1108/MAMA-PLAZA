@@ -17,8 +17,7 @@ class Admins::UsersController < ApplicationController
   def withdraw
     @user = User.find(params[:id])
     @user.update(is_deleted: true)
-    reset_session
-    redirect_to admins_user_path
+    redirect_to admins_user_path(@user)
   end
 
   private
