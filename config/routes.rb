@@ -43,7 +43,8 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
       member do
-        get :favorites, :followings, :followers
+        get :favorites, :followings, :followers, :unsubscribe
+        patch :withdraw
       end
     end
   end
@@ -53,7 +54,12 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show, :destroy]
       resources :comments, only: [:destroy]
 
-    resources :users, only: [:show, :index]
+    resources :users, only: [:show, :index] do
+      member do
+        get :unsubscribe
+        patch :withdraw
+      end
+    end
 
   end
 

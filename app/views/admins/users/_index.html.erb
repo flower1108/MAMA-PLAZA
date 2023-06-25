@@ -16,7 +16,14 @@
           <span><%= link_to "#{user.post.count} 投稿", admins_user_path(user.id), class: "text-link" %>　｜
           <%= link_to "#{user.followings.count} フォロー", followings_user_path(user.id), class: "text-link" %> ｜ <%= link_to "#{user.followers.count} フォロワー", followers_user_path(user.id), class: "text-link" %></span><br>
           <span class="user-text"><i class="fas fa-baby"></i><%= user.child_information %></span><br>
-          <span class="user-text"><%= user.introduction %></span>
+          <span class="user-text"><%= user.introduction %></span><br>
+          <span class="user-text">ステータス：
+            <% if user.is_deleted == true %>
+              <%= "退会済み" %>
+            <% else %>
+              <%= "有効" %>
+            <% end %>
+          </span>
         </div>
       </div>
     </div>

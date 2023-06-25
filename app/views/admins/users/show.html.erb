@@ -40,6 +40,8 @@
         </tbody>
       </table>
       <%= render 'admins/posts/post', posts: @posts %>
+      <%= link_to "戻る", admins_users_path ,class: "btn btn-outline-secondary" %>
+      <%= link_to "退会させる", unsubscribe_admins_user_path ,class: "btn btn-outline-secondary" %>
     </div>
   </div>
 </div>

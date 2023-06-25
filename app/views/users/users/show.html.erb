@@ -76,18 +76,22 @@
           </li>
         </ul>
       </div>
-      <table class="table table-borderless">
-        <tbody>
-          <tr>
-            <th class="table-head">子ども情報</th>
-            <td class="table-deta"><%= @user.child_information %></td>
-          </tr>
-          <tr>
-            <th class="table-head">自己紹介</th>
-            <td class="table-deta"><%= @user.introduction %></td>
-          </tr>
-        </tbody>
-      </table>
+        <% if @user.is_deleted == true %>
+          <p class="post-body">退会済みです</p>
+        <% else %>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <th class="table-head">子ども情報</th>
+                <td class="table-deta"><%= @user.child_information %></td>
+              </tr>
+              <tr>
+                <th class="table-head">自己紹介</th>
+                <td class="table-deta"><%= @user.introduction %></td>
+              </tr>
+            </tbody>
+          </table>
+        <% end %>
       <% end %>
       <%= render 'users/posts/post', posts: @posts %>
     </div>

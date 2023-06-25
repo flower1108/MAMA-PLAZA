@@ -9,6 +9,18 @@ class Admins::UsersController < ApplicationController
     @users = User.all.page(params[:page]).per(20)
   end
 
+  #退会機能
+  def unsubscribe
+    @user = User.find(params[:id])
+  end
+
+  def withdraw
+    @user = User.find(params[:id])
+    @user.update(is_deleted: true)
+    reset_session
+    redirect_to admins_user_path
+  end
+
   private
 
   def user_params
