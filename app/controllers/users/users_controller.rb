@@ -1,5 +1,6 @@
 class Users::UsersController < ApplicationController
   before_action :set_user, only: [:favorites, :followings, :followers]
+  before_action :ensure_guest_user, only: [:edit]
 
   def index
     @users = User.all.page(params[:page]).per(20)
@@ -60,5 +61,12 @@ class Users::UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+  
+  def ensure_guest_user
+    @user = User.find(params[:id])
+    if @user.email == "guest@example.com"
+      redirect_to user_path(current_user) , notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
+    end
+  end  
 
 end
