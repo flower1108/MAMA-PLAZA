@@ -1,9 +1,7 @@
 class Users::PostsController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :living, :trip, :food, :talk]
 
-  def index
-    @posts = Post.all
-  end
 
   def new
     @post = Post.new

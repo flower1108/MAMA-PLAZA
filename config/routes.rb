@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
   scope module: :users do
 
-    resources :posts do
+    resources :posts, only: [:show, :new, :create, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
       collection do

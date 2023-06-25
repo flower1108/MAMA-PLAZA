@@ -1,6 +1,7 @@
 class Users::UsersController < ApplicationController
   before_action :set_user, only: [:favorites, :followings, :followers]
   before_action :ensure_guest_user, only: [:edit]
+  before_action :authenticate_user!, except: [:show, :index]
 
   def index
     @users = User.all.page(params[:page]).per(20)
