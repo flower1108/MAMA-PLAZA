@@ -13,7 +13,7 @@ Admin.create!(
 
 users = User.create!(
   [
-    {email: 'ao@testuser', name: 'あお', password: '100100', profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user1.jpg"), filename:"sample-user1.jpg"), child_information: '6歳の女の子・1歳の男���子', introduction: '仕事をしながら2人の母してます！'},
+    {email: 'ao@testuser', name: 'あお', password: '100100', profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user1.jpg"), filename:"sample-user1.jpg"), child_information: '6歳の女の子・1歳の男の子', introduction: '仕事をしながら2人の母してます！'},
     {email: 'popo@testuser', name: 'ぽぽ', password: '100100', profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user2.jpg"), filename:"sample-user2.jpg"), child_information: '4歳11ヶ月の女の子', introduction: '東京在住、4歳女の子ママです。'},
     {email: 'mari@testuser', name: 'まり', password: '100100', profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), filename:"sample-user3.jpg"), child_information: '2歳9カ月の男の子'},
     {email: 'hana@testuser', name: 'はな', password: '100100', profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user4.jpg"), filename:"sample-user4.jpg"), child_information: '4歳9カ月の女の子・8歳の男の子'},
