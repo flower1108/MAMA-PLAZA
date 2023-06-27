@@ -3,12 +3,12 @@
       <% posts.each do |post| %>
       <div class="card mx-auto mt-4" style="max-width: 900px;">
         <div class="row no-gutters">
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <%= link_to post_path(post.id) do %>
             <%= image_tag post.get_post_image, :height => '180', class:"card-img-top"; %>
           <% end %>
           </div>
-          <div class="col-lg-9">
+          <div class="col-lg-8">
           <div class="card-body">
             <div class="row">
               <div class="col-6">

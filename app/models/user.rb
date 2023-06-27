@@ -40,7 +40,6 @@ class User < ApplicationRecord
     @user = User.where("name LIKE?","%#{word}%")
   end
 
-  #before_create :default_image
 
   def get_profile_image
     unless profile_image.attached?
@@ -50,11 +49,7 @@ class User < ApplicationRecord
     profile_image
   end
 
-  #def default_image
-    #if !self.profile_image.attached?
-      #self.profile_image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'profile-noimage.png')), filename: 'profile-noimage.png', content_type: 'image/png')
-    #end
-  #end
+
   #ゲストログイン
 
   GUEST_USER_EMAIL = "guest@example.com"
