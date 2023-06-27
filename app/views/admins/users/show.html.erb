@@ -2,7 +2,7 @@
   <div class="row no-gutters">
     <div class="col-md-9 col-sm-9 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <h2 class="text-dark bg-light p-4 mb-0">
-        <%= image_tag @user.get_profile_image, class: "rounded-circle", :height => '70' %>  <%= @user.name %>
+        <%= image_tag @user.get_profile_image, class: "rounded-circle", :height => '70' %>  <%= @user.name %>   <%= link_to "退会させる", unsubscribe_admins_user_path ,class: "btn btn-outline-secondary" %>
       </h2>
       <div>
         <ul class="list-group list-group-horizontal flex-fill list-group-flush">
@@ -23,26 +23,29 @@
           </li>
         </ul>
       </div>
-      <table class="table table-borderless">
-        <tbody>
-          <tr>
-            <th class="table-head">子ども情報</th>
-            <td class="table-deta"><%= @user.child_information %></td>
-          </tr>
-          <tr>
-            <th class="table-head">メールアドレス</th>
-            <td class="table-deta"><%= @user.email %></td>
-          </tr>
-          <tr>
-            <th class="table-head">自己紹介</th>
-            <td class="table-deta"><%= @user.introduction %></td>
-          </tr>
-        </tbody>
-      </table>
+      <% if @user.is_deleted == true %>
+        <p class="post-body">退会済みです</p>
+      <% else %>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <th class="table-head">子ども情報</th>
+              <td class="table-deta"><%= @user.child_information %></td>
+            </tr>
+            <tr>
+              <th class="table-head">メールアドレス</th>
+              <td class="table-deta"><%= @user.email %></td>
+            </tr>
+            <tr>
+              <th class="table-head">自己紹介</th>
+              <td class="table-deta"><%= @user.introduction %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
       <%= render 'admins/posts/post', posts: @posts %>
       <div class="post-comment">
-        <%= link_to "戻る", admins_users_path ,class: "btn btn-outline-secondary" %>
-        <%= link_to "退会させる", unsubscribe_admins_user_path ,class: "btn btn-outline-secondary" %>
+      <%= link_to "戻る", admins_users_path ,class: "btn btn-outline-secondary" %>
       </div>
     </div>
   </div>
