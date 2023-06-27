@@ -2,6 +2,7 @@
   <div class="row d-flex justify-content-center">
     <h2 class="border-bottom border-gray m-0 pr-1 post-blog-heading">検索結果</h2>
   </div>
+  <% if user_signed_in? %>
   <div class="row">
     <div class="col-2 text-center">
       <%= render 'users/posts/sidebar' %>
@@ -13,5 +14,15 @@
         <%= render 'users/posts/post', posts: @posts %>
       <% end %>
     </div>
+  </div>
+  <% elsif admin_signed_in? %>
+    <div class ="card-list p-5">
+      <% if @range == "User" %>
+        <%= render 'admins/users/index', users: @users %>
+      <% else %>
+        <%= render 'admins/posts/post', posts: @posts %>
+      <% end %>
+    </div>
+  <% end %>
   </div>
 </div>
