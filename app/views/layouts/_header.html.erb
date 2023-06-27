@@ -1,15 +1,14 @@
-<header class="w-100 d-flex justify-content-between align-items-center px-3 fixed-top" style="background-color:#f4f2e9">
+<header class="w-100 justify-content-between align-items-center px-3 fixed-top" style="background-color:#f4f2e9">
 
   <nav class="navbar navbar-expand-lg">
-    <div class="container">
+
       <a class="navbar-logo" href="/">
       <%= image_tag 'PF.logo.1.png', :height =>'100' %>
       </a>
-      <%= render 'layouts/search' %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav d-flex flex-row ml-auto">
         <% if user_signed_in? %>
         <!--ユーザーがログインしている時 -->
@@ -76,6 +75,5 @@
         <% end %>
         </ul>
       </div>
-    </div>
   </nav>
 </header>
