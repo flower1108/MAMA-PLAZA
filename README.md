@@ -1,6 +1,6 @@
 # MAMA PLAZA
 
-!("README.logo.png")
+!("images/README.logo.png")
 
 ## サイト概要
 ### サイトテーマ
