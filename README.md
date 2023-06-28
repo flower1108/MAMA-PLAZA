@@ -1,5 +1,7 @@
 # MAMA PLAZA
 
+!("images/README.logo.png")
+
 ## サイト概要
 ### サイトテーマ
  子育て中のママのためのコミュニティサイト
