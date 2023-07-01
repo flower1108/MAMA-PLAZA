@@ -25,7 +25,7 @@
       </div>
       <div class="tag-box">
         <% @post.tags.each do |tag| %>
-          <span class="label"><%= tag.name %></span>
+          <span class="tag-label"><%= tag.name %></span>
         <% end %>
         </div>
       <% if user_signed_in? %>
