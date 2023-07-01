@@ -23,6 +23,11 @@
       <div class="post-body">
         <p><%= @post.body %></p>
       </div>
+      <div class="tag-box">
+        <% @post.tags.each do |tag| %>
+          <span class="label"><%= tag.name %></span>
+        <% end %>
+        </div>
       <% if user_signed_in? %>
       <div class="post-favorite">
         <p id="favorite_buttons_<%= @post.id %>">
