@@ -35,6 +35,7 @@ class Users::PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     if @post.user == current_user
+
     else
       redirect_back
     end
@@ -42,7 +43,16 @@ class Users::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    if @post.post_image.present?
+      tags = Vision.get_post_image_data(post_params[:post_image])
+    end
+    @post.user_id = current_user.id
     if @post.update(post_params)
+      if @post.post_image.present?
+        tags.each do |tag|
+          @post.tags.create(name: tag)
+        end
+      end
       flash[:notice] = "投稿を更新しました。"
       redirect_to post_path(@post.id)
     else
