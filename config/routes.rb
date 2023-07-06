@@ -54,12 +54,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show, :destroy]
       resources :comments, only: [:destroy]
 
-    resources :users, only: [:show, :index] do
-      member do
-        get :unsubscribe
-        patch :withdraw
-      end
-    end
+    resources :users, only: [:show, :index, :update, :edit]
 
   end
 

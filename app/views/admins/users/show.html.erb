@@ -2,7 +2,7 @@
   <div class="row no-gutters">
     <div class="col-md-9 col-sm-9 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <h2 class="text-dark bg-light p-4 mb-0">
-        <%= image_tag @user.get_profile_image, class: "rounded-circle", :height => '70' %>  <%= @user.name %>   <%= link_to "退会させる", unsubscribe_admins_user_path ,class: "btn btn-outline-secondary" %>
+        <%= image_tag @user.get_profile_image, class: "rounded-circle", :height => '70' %>  <%= @user.name %>
       </h2>
       <div>
         <ul class="list-group list-group-horizontal flex-fill list-group-flush">
@@ -23,26 +23,33 @@
           </li>
         </ul>
       </div>
-      <% if @user.is_deleted == true %>
-        <p class="post-body">退会済みです</p>
-      <% else %>
-        <table class="table table-borderless">
-          <tbody>
-            <tr>
-              <th class="table-head">子ども情報</th>
-              <td class="table-deta"><%= @user.child_information %></td>
-            </tr>
-            <tr>
-              <th class="table-head">メールアドレス</th>
-              <td class="table-deta"><%= @user.email %></td>
-            </tr>
-            <tr>
-              <th class="table-head">自己紹介</th>
-              <td class="table-deta"><%= @user.introduction %></td>
-            </tr>
-          </tbody>
-        </table>
-      <% end %>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th class="table-head">子ども情報</th>
+            <td class="table-deta"><%= @user.child_information %></td>
+          </tr>
+          <tr>
+            <th class="table-head">メールアドレス</th>
+            <td class="table-deta"><%= @user.email %></td>
+          </tr>
+          <tr>
+            <th class="table-head">自己紹介</th>
+            <td class="table-deta"><%= @user.introduction %></td>
+          </tr>
+          <tr>
+            <th class="table-head">会員ステータス</th>
+            <td class="table-deta">
+              <%= form_with model: @user,method: :patch, url: admins_user_path(@user) do |f|%>
+                <%= f.radio_button :is_deleted, :true %>
+                <%= f.label :is_deleted, "退会" %>
+                <%= f.radio_button :is_deleted, :false %>
+                <%= f.label :is_deleted, "有効" %>　　<%= f.submit "変更",class:"btn btn-outline-dark" %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
       <%= render 'admins/posts/post', posts: @posts %>
       <div class="post-comment">
       <%= link_to "戻る", admins_users_path ,class: "btn btn-outline-secondary" %>

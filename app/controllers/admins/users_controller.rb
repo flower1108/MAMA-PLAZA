@@ -10,21 +10,18 @@ class Admins::UsersController < ApplicationController
     @users = User.all.page(params[:page]).per(20)
   end
 
-  #退会機能
-  def unsubscribe
+  def update
     @user = User.find(params[:id])
-  end
-
-  def withdraw
-    @user = User.find(params[:id])
-    @user.update(is_deleted: true)
+    @user.update(user_params)
     redirect_to admins_user_path(@user)
   end
+
+
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :child_information, :introduction, :profile_image)
+    params.require(:user).permit(:name, :email, :child_information, :introduction, :profile_image, :is_deleted)
   end
 
 end
