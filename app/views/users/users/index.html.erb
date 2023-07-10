@@ -3,10 +3,13 @@
     <h2 class="m-0 pr-1 post-blog-heading">ユーザー</h2>
   </div>
   <div class="row" style="margin-top: 40px;">
+
+    <!--sidebar-->
     <div class="col-2 text-center">
       <%= render 'users/posts/sidebar' %>
     </div>
 
+    <!--main content-->
     <div class ="col-12 col-lg-9">
       <%= render 'user', users: @users %>
     </div>

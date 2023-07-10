@@ -4,9 +4,13 @@
 
 <div class="container">
   <div class="row no-gutters">
+
+    <!--sidebar-->
     <div class="col-2 text-center">
       <%= render 'sidebar' %>
     </div>
+
+    <!--main content-->
     <div class="col-md-7 col-sm-7 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <h3 class="text-dark bg-light p-4 mb-0 post-h2-title"><%= @post.title %>
         <% if @post.user == current_user %>

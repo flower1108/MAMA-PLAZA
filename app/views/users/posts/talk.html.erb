@@ -3,10 +3,13 @@
     <h2 class="m-0 pr-1 post-blog-heading">ざつだん</h2>
   </div>
   <div class="row">
+
+    <!--sidebar-->
     <div class="col-2 text-center">
       <%= render 'sidebar' %>
     </div>
 
+    <!--main content-->
     <div class ="col-10  card-list p-5">
       <% @talks.each do |post| %>
       <div class="card mx-auto mt-4 shadow-lg" style="max-width: 900px;">
