@@ -11,7 +11,33 @@
 
     <!--main content-->
     <div class ="col-12 col-lg-9">
-      <%= render 'user', users: @users %>
+      <div class="row">
+  <% @users.each do |user| %>
+    <div class="col-12 col-md-6 col-lg-3 mb-3">
+      <div class="card shadow-lg">
+        <div class="card-image" style="width: 100%; height: 180px;">
+          <%= link_to user_path(user.id) do %>
+            <%= image_tag user.get_profile_image, class:"card-img-top"; %>
+          <% end %>
+        </div>
+        <div class="card-body">
+          <div class="card-title">
+          <span>
+            <%= link_to(user_path(user.id), class:"text-dark") do %>
+              <strong><span> <%= user.name %></span></strong>
+            <% end %>
+          </span>
+          <span id="follow_<%= user.id %>">
+            <%= render "users/shared/follow", user: user %>
+          </span>
+          </div>
+          <span><%= "投稿 #{user.post.count}件" %></span><br>
+          <span class="user-text"><i class="fas fa-baby"></i><%= user.child_information %></span><br>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
     </div>
     <%= paginate @users %>
   </div>

@@ -1,0 +1,9 @@
+<% if current_user.following?(user) %>
+  <%= link_to user_relationships_path(user.id), method: :delete, remote: true do %>
+    <i class="fas fa-user-minus" style="color: #8ab3a4;"></i>
+  <% end %>
+<% else %>
+  <%= link_to user_relationships_path(user.id), method: :post, remote: true do %>
+    <i class="fas fa-user-plus" style="color: #8ab3a4;"></i>
+  <% end %>
+<% end %>

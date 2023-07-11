@@ -1,5 +1,5 @@
 <div class="row">
-  <% users.each do |user| %>
+  <% @users.each do |user| %>
     <div class="col-12 col-md-6 col-lg-3 mb-3">
       <div class="card shadow-lg">
         <div class="card-image" style="width: 100%; height: 180px;">
@@ -8,19 +8,11 @@
           <% end %>
         </div>
         <div class="card-body">
-          <p class="card-title">
+          <p id="follow_<%= @user.id %>" class="card-title">
             <%= link_to(user_path(user.id), class:"text-dark") do %>
               <strong><span> <%= user.name %></span></strong>
             <% end %>
-          <% if current_user.following?(user) %>
-            <%= link_to user_relationships_path(user.id), method: :delete do %>
-              <i class="fas fa-user-minus" style="color: #8ab3a4;"></i>
-            <% end %>
-          <% else %>
-            <%= link_to user_relationships_path(user.id), method: :post do %>
-              <i class="fas fa-user-plus" style="color: #8ab3a4;"></i>
-            <% end %>
-          <% end %>
+          <%= render "users/shared/follow" %>
           </p>
           <span><%= "投稿 #{user.post.count}件" %></span><br>
           <span class="user-text"><i class="fas fa-baby"></i><%= user.child_information %></span><br>

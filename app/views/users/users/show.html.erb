@@ -56,16 +56,12 @@
       </table>
       <% else %>
       <h2 class="text-dark bg-light p-4 mb-0">
-        <%= image_tag @user.profile_image,class: "rounded-circle", :height => '70' %>  <%= @user.name %>
-          <% if current_user.following?(@user) %>
-            <%= link_to user_relationships_path(@user.id), method: :delete do %>
-              <i class="fas fa-user-minus" style="color: #8ab3a4;"></i>
-            <% end %>
-          <% else %>
-            <%= link_to user_relationships_path(@user.id), method: :post do %>
-              <i class="fas fa-user-plus" style="color: #8ab3a4;"></i>
-            <% end %>
-          <% end %>
+        <span>
+          <%= image_tag @user.profile_image,class: "rounded-circle", :height => '70' %>  <%= @user.name %>
+        </span>
+        <span id="follow_<%= @user.id %>">
+          <%= render "users/shared/follow", user: @user %>
+        </span>
       </h2>
       <div>
         <ul class="list-group list-group-horizontal flex-fill list-group-flush">
