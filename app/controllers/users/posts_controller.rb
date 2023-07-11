@@ -49,6 +49,7 @@ class Users::PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.update(post_params)
       if @post.post_image.present?
+        @post.tags.delete_all
         tags.each do |tag|
           @post.tags.create(name: tag)
         end
