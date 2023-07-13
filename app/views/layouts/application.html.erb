@@ -14,10 +14,121 @@
 
   <body style="padding-top: 5rem">
 
-    <%= render "layouts/header" %>
-    <main>
-      <%= yield %>
-    </main>
+    <header id="global-head">
+      <h1 id="brand-logo">
+        <a href="/">
+          <%= image_tag 'PF.logo.1.png', :width => '260px' %>
+        </a>
+      </h1>
+    </header>
+    <div id="nav-toggle">
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <aside id="sidebar">
+      <nav id="global-nav">
+        <ul>
+          <% if user_signed_in? %>
+          <li><a href="/">Home</a></li>
+          <li class="sub-menu">
+            <%= link_to new_post_path do %>
+            <i class="fas fa-pen"></i>
+            新規投稿
+            <% end %>
+          </li>
+          <li class="sub-menu">
+            <a href="#" class="sub-menu-head">カテゴリ</a>
+                <ul class="sub-menu-nav">
+                    <li>
+                      <%= link_to living_posts_path do %>
+                        <i class="fas fa-home"></i> くらし
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to trip_posts_path do %>
+                        <i class="fas fa-suitcase"></i> おでかけ
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to food_posts_path do %>
+                        <i class="fas fa-utensils"></i> ごはん
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to talk_posts_path do %>
+                        <i class="fas fa-comments"></i> ざつだん
+                      <% end %>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              <%= link_to user_path(current_user) do %>
+                <i class="fas fa-home-lg-alt"></i>
+                マイページ
+              <% end %>
+            </li>
+            <li>
+              <%=  link_to users_path do %>
+              <i class="fas fa-user-friends"></i>
+              ユーザー
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fas fa-sign-out-alt"></i>
+              ログアウト
+              <% end %>
+            </li>
+            <% elsif admin_signed_in? %>
+            <li>
+            <%=  link_to admins_posts_path do %>
+              投稿一覧
+              <% end %>
+            </li>
+            <li>
+                <%=  link_to admins_users_path do %>
+              ユーザー一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_admin_session_path, method: :delete do %>
+              ログアウト
+              <% end %>
+            </li>
+            <% else %>
+            <li>
+              <%= link_to new_user_registration_path do %>
+              <i class="fas fa-user-plus"></i>
+              新規登録
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_session_path do %>
+              <i class="fas fa-sign-in-alt"></i>
+              ログイン
+              <% end %>
+            </li>
+            <li>
+              <%= link_to users_guest_sign_in_path, method: :post do %>
+              <i class="fas fa-user-check"></i>
+              ゲストログイン
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+    </nav>
+</aside>
+
+    <main id="main">
+      <div id="main-in">
+          <div id="main-visual">
+            <%= yield %>
+          </div>
+      </div><!-- /#main-in -->
+  </main>
     <div class="footerFixed">
       <%= render "layouts/footer" %>
     </div>
