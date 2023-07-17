@@ -312,6 +312,19 @@ main {
   margin-top: 15px;
 }
 
+.user-text-chld {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /*2行で省略*/
+}
+
+@media screen and (max-width:575px) {
+  .sidebar-mypage {
+    display: none;
+  }
+}
+
 /*ページの設定*/
 
 .pagination {
