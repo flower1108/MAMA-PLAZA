@@ -97,7 +97,7 @@ body {
   }
 }
 
-@media screen and (max-width:550px) {
+@media screen and (max-width:576px) {
   #logo-img {
     width: 300px;
   }
@@ -228,6 +228,43 @@ main {
 
 .card-lists {
   margin-top: 50px;
+}
+
+.cart-title-img {
+  margin-left: 10px;
+}
+
+.cart-title-top {
+  margin-left: 10px;
+}
+
+.card-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /*2行で省略*/
+}
+
+@media screen and (max-width:576px) {
+  .card-title-img {
+    height: 60px;
+    width: 60px;
+  }
+  .cart-title-top {
+    margin-left: 5px;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .card-title-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; /*1行で省略*/
+  }
+  .cart-title-top {
+    margin-top: 10px;
+  }
 }
 
 /*投稿詳細の設定*/
