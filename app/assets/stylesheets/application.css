@@ -74,10 +74,45 @@ body {
 
 #logo {
   display: block;
+  height: 200px;
   width: 20%;
   position: absolute;
-  left: 35%;
+  left: 33%;
   bottom: 50%;
+}
+
+@media screen and (max-width:1024px) {
+  #logo {
+    left: 25%;
+  }
+}
+
+@media screen and (max-width:768px) {
+  #logo-img {
+    left: 10%;
+    width: 350px;
+  }
+  .menubar {
+    top: 300px;
+  }
+}
+
+@media screen and (max-width:550px) {
+  #logo-img {
+    width: 300px;
+  }
+  .menubar {
+    top: 300px;
+  }
+}
+
+@media screen and (max-width:425px) {
+  #logo {
+    left: 10%;
+  }
+  .menubar {
+    top: 300px;
+  }
 }
 
 /*メニューバー*/
@@ -294,9 +329,18 @@ footer {
   height:100vh;
 }
 
+.about-img {
+  position: absolute;
+  height: 400px;
+}
+
 .about-box {
   margin-top: 80px;
+  position: absolute;
+  color: #679483;
 }
+
+
 
 /*タグの設定*/
 
