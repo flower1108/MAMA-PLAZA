@@ -42,9 +42,9 @@
             <td class="table-deta">
               <%= form_with model: @user,method: :patch, url: admins_user_path(@user) do |f|%>
                 <%= f.radio_button :is_deleted, :true %>
-                <%= f.label :is_deleted, "退会" %>
+                <%= f.label :is_deleted, "退会", value: true %>
                 <%= f.radio_button :is_deleted, :false %>
-                <%= f.label :is_deleted, "有効" %>　　<%= f.submit "変更",class:"btn btn-outline-dark" %>
+                <%= f.label :is_deleted, "有効", value: false %>　　<%= f.submit "変更",class:"btn btn-outline-dark" %>
               <% end %>
             </td>
           </tr>
