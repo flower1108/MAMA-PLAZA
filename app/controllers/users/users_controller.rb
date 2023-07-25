@@ -4,7 +4,7 @@ class Users::UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
   def index
-    @users = User.all.page(params[:page]).per(20)
+    @users = User.all.page(params[:page]).per(20).order(created_at: :desc)
   end
 
   def show
