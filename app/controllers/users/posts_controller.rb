@@ -93,7 +93,7 @@ class Users::PostsController < ApplicationController
   def is_matching_login_user
     post = Post.find(params[:id])
     unless current_user.id == post.user.id
-      redirect_to posts_path
+      redirect_back fallback_location: post
     end
   end
 end
