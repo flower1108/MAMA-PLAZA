@@ -1,5 +1,5 @@
 <div class="row">
-  <% @users.each do |user| %>
+  <% users.each do |user| %>
     <div class="col-12 col-md-6 col-lg-3 mb-3">
       <div class="card shadow-lg">
         <div class="card-image" style="width: 100%; height: 180px;">
@@ -8,11 +8,13 @@
           <% end %>
         </div>
         <div class="card-body">
-          <p id="follow_<%= @user.id %>" class="card-title">
+          <p class="card-title">
             <%= link_to(user_path(user.id), class:"text-dark") do %>
               <strong><span> <%= user.name %></span></strong>
             <% end %>
-          <%= render "users/shared/follow" %>
+          <span id="follow_<%= user.id %>">
+            <%= render "users/shared/follow", user: user %>
+          </span>
           </p>
           <span><%= "投稿 #{user.post.count}件" %></span><br>
           <span class="user-text"><i class="fas fa-baby"></i><%= user.child_information %></span><br>
