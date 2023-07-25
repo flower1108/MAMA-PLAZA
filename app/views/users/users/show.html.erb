@@ -77,7 +77,10 @@
           </li>
           <li class="list-group-item">
             <%= link_to followers_user_path(@user), class: "text-link" do %>
-              <i class="fas fa-user-friends"></i> <%= @user.followers.count %> フォロワー
+              <i class="fas fa-user-friends"></i>
+              <span id="follow_count_<%= @user.id %>">
+                <%= render "users/relationships/follower_count", user: @user %>
+              </span>
             <% end %>
           </li>
         </ul>
