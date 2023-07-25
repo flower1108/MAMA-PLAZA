@@ -226,6 +226,12 @@ main {
   display: inline-block;
 }
 
+.index-img{
+  height: 180px;
+  object-fit: cover;
+  width: 100%;
+}
+
 .card-lists {
   margin-top: 50px;
 }
