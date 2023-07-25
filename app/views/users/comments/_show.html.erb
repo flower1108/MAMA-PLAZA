@@ -8,7 +8,7 @@
   <% end %>
   <%= comment.user.name unless comment.user.blank? %>
   <% if comment.user == current_user %>
-    <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-outline-danger pull-right ml-2", remote: true %>
+    <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-outline-danger pull-right ml-2", remote: true, "data-confirm" => "本当に削除しますか？" %>
   <% end %>
   <br>
   <p><%= comment.comment %></p>
