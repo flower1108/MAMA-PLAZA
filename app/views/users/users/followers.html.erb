@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row d-flex justify-content-center">
-    <h2 class="m-0 pr-1 post-blog-heading">フォロワー</h2>
+    <h2 class="m-0 pr-1 post-blog-heading"><%= @user.name %>さんのフォロワー</h2>
   </div>
   <%= render 'follow', users: @users %>
   <%= paginate @users %>

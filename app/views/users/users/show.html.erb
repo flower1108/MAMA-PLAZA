@@ -103,6 +103,9 @@
         <% end %>
       <% end %>
       <%= render 'users/posts/post', posts: @posts %>
+      <% if @user != current_user %>
+        <%= link_to "戻る", users_path, class: "btn btn-outline-secondary" %>
+      <% end %>
     </div>
   </div>
 </div>
