@@ -12,9 +12,11 @@
             <%= link_to(user_path(user.id), class:"text-dark") do %>
               <strong><span> <%= user.name %></span></strong>
             <% end %>
-          <span id="follow_<%= user.id %>">
-            <%= render "users/shared/follow", user: user %>
-          </span>
+            <% if user != current_user %>
+              <span id="follow_<%= user.id %>">
+                <%= render "users/shared/follow", user: user %>
+              </span>
+            <% end %>
           </p>
           <span><%= "投稿 #{user.post.count}件" %></span><br>
           <span class="user-text"><i class="fas fa-baby"></i><%= user.child_information %></span><br>
