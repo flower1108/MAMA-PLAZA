@@ -13,78 +13,78 @@
     <!--main content-->
     <div class="col-md-9 col-sm-9 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <% if user_signed_in? && current_user.id.to_s == params[:id] %>
-      <h2 class="text-dark bg-light p-4 mb-0">
-        <%= image_tag @user.get_profile_image, class: "rounded-circle", :height => '70' %>  <%= @user.name %>
-        <% unless @user.guest_user? %>
-          <%= link_to "編集", edit_user_path(current_user) , class: "btn btn-outline-secondary" %>
-        <% end %>
-      </h2>
-      <div>
-        <ul class="list-group list-group-horizontal flex-fill list-group-flush">
-          <li class="list-group-item">
-            <%= link_to favorites_user_path(@user), class: "text-link" do %>
-              <i class="fas fa-heart"></i> <%= @user.favorites.count %> お気に入り
-            <% end %>
-          </li>
-          <li class="list-group-item">
-            <%= link_to followings_user_path(@user), class: "text-link" do %>
-              <i class="fas fa-user-friends"></i> <%= @user.followings.count %> フォロー
-            <% end %>
-          </li>
-          <li class="list-group-item">
-            <%= link_to followers_user_path(@user), class: "text-link" do %>
-              <i class="fas fa-user-friends"></i> <%= @user.followers.count %> フォロワー
-            <% end %>
-          </li>
-        </ul>
-      </div>
-      <table class="table table-borderless">
-        <tbody>
-          <tr>
-            <th class="table-head">子ども情報</th>
-            <td class="table-deta"><%= @user.child_information %></td>
-          </tr>
-          <tr>
-            <th class="table-head">メールアドレス</th>
-            <td class="table-deta"><%= @user.email %></td>
-          </tr>
-          <tr>
-            <th class="table-head">自己紹介</th>
-            <td class="table-deta"><%= @user.introduction %></td>
-          </tr>
-        </tbody>
-      </table>
+        <h2 class="text-dark bg-light p-4 mb-0">
+          <%= image_tag @user.get_profile_image, class: "rounded-circle", :height => '70' %>  <%= @user.name %>
+          <% unless @user.guest_user? %>
+            <%= link_to "編集", edit_user_path(current_user) , class: "btn btn-outline-secondary" %>
+          <% end %>
+        </h2>
+        <div>
+          <ul class="list-group list-group-horizontal flex-fill list-group-flush">
+            <li class="list-group-item">
+              <%= link_to favorites_user_path(@user), class: "text-link" do %>
+                <i class="fas fa-heart"></i> <%= @user.favorites.count %> お気に入り
+              <% end %>
+            </li>
+            <li class="list-group-item">
+              <%= link_to followings_user_path(@user), class: "text-link" do %>
+                <i class="fas fa-user-friends"></i> <%= @user.followings.count %> フォロー
+              <% end %>
+            </li>
+            <li class="list-group-item">
+              <%= link_to followers_user_path(@user), class: "text-link" do %>
+                <i class="fas fa-user-friends"></i> <%= @user.followers.count %> フォロワー
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <th class="table-head">子ども情報</th>
+              <td class="table-deta"><%= @user.child_information %></td>
+            </tr>
+            <tr>
+              <th class="table-head">メールアドレス</th>
+              <td class="table-deta"><%= @user.email %></td>
+            </tr>
+            <tr>
+              <th class="table-head">自己紹介</th>
+              <td class="table-deta"><%= @user.introduction %></td>
+            </tr>
+          </tbody>
+        </table>
       <% else %>
-      <h2 class="text-dark bg-light p-4 mb-0">
-        <span>
-          <%= image_tag @user.profile_image,class: "rounded-circle", :height => '70' %>  <%= @user.name %>
-        </span>
-        <span id="follow_<%= @user.id %>">
-          <%= render "users/shared/follow", user: @user %>
-        </span>
-      </h2>
-      <div>
-        <ul class="list-group list-group-horizontal flex-fill list-group-flush">
-          <li class="list-group-item">
-            <%= link_to favorites_user_path(@user), class: "text-link" do %>
-              <i class="fas fa-heart"></i> <%= @user.favorites.count %> お気に入り
-            <% end %>
-          </li>
-          <li class="list-group-item">
-            <%= link_to followings_user_path(@user), class: "text-link" do %>
-              <i class="fas fa-user-friends"></i> <%= @user.followings.count %> フォロー
-            <% end %>
-          </li>
-          <li class="list-group-item">
-            <%= link_to followers_user_path(@user), class: "text-link" do %>
-              <i class="fas fa-user-friends"></i>
-              <span id="follow_count_<%= @user.id %>">
-                <%= render "users/relationships/follower_count", user: @user %>
-              </span>
-            <% end %>
-          </li>
-        </ul>
-      </div>
+        <h2 class="text-dark bg-light p-4 mb-0">
+          <span>
+            <%= image_tag @user.profile_image,class: "rounded-circle", :height => '70' %>  <%= @user.name %>
+          </span>
+          <span id="follow_<%= @user.id %>">
+            <%= render "users/shared/follow", user: @user %>
+          </span>
+        </h2>
+        <div>
+          <ul class="list-group list-group-horizontal flex-fill list-group-flush">
+            <li class="list-group-item">
+              <%= link_to favorites_user_path(@user), class: "text-link" do %>
+                <i class="fas fa-heart"></i> <%= @user.favorites.count %> お気に入り
+              <% end %>
+            </li>
+            <li class="list-group-item">
+              <%= link_to followings_user_path(@user), class: "text-link" do %>
+                <i class="fas fa-user-friends"></i> <%= @user.followings.count %> フォロー
+              <% end %>
+            </li>
+            <li class="list-group-item">
+              <%= link_to followers_user_path(@user), class: "text-link" do %>
+                <i class="fas fa-user-friends"></i>
+                <span id="follow_count_<%= @user.id %>">
+                  <%= render "users/relationships/follower_count", user: @user %>
+                </span>
+              <% end %>
+            </li>
+          </ul>
+        </div>
         <% if @user.is_deleted == true %>
           <p class="post-body">退会済みです</p>
         <% else %>

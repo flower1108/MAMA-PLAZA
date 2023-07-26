@@ -2,17 +2,17 @@
 
   <nav class="navbar navbar-expand-lg">
 
-      <a class="navbar-logo" href="/">
+    <a class="navbar-logo" href="/">
       <%= image_tag 'PF.logo.1.png', :height =>'100' %>
-      </a>
-      <% if admin_signed_in? %>
-        <%= render 'layouts/search' %>
-      <% end %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-        <ul class="navbar-nav d-flex flex-row ml-auto">
+    </a>
+    <% if admin_signed_in? %>
+      <%= render 'layouts/search' %>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav d-flex flex-row ml-auto">
         <% if user_signed_in? %>
         <!--ユーザーがログインしている時 -->
           <li>
@@ -76,7 +76,7 @@
             <% end %>
           </li>
         <% end %>
-        </ul>
-      </div>
+      </ul>
+    </div>
   </nav>
 </header>

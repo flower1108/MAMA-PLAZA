@@ -28,9 +28,9 @@
                   <% end %>
                 </span>
                 <% if user != current_user %>
-                <span id="follow_<%= user.id %>">
-                  <%= render "users/shared/follow", user: user %>
-                </span>
+                  <span id="follow_<%= user.id %>">
+                    <%= render "users/shared/follow", user: user %>
+                  </span>
                 <% end %>
                 </div>
                 <span><%= "投稿 #{user.post.count}件" %></span><br>
